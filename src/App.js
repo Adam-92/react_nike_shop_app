@@ -1,21 +1,36 @@
 import './index.css'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {CSSTransition, TransitionGroup} from 'react-transition-group'
+import {Switch, Route, useLocation} from 'react-router-dom'
 import Register from './page/Register'
 import Error from './page/Error'
+import Login from './page/Login'
 
-function App() {
-  
+
+function App () {
+  const location = useLocation();
   return (
-    <Router>
-      <Switch>
-        <Route path="/" exact>
-           <Register />
-        </Route>
-        <Route path="*">
-          <Error />
-        </Route>
-      </Switch>
-    </Router>
+        <TransitionGroup>
+          <CSSTransition 
+            timeout={1000}
+            classNames="fade"
+            key={location.key}
+          >
+            <Switch location={location}>
+              <Route path="/" exact>
+                <Register />
+              </Route>
+              <Route path="/register" exact>
+                <Register />
+              </Route>
+              <Route path="/login" exact>
+                <Login />
+              </Route>
+              <Route path="*">
+                <Error />
+              </Route>
+            </Switch>
+          </CSSTransition>
+        </TransitionGroup>
   );
 }
 

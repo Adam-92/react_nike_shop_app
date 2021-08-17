@@ -4,14 +4,15 @@ import { faUser,faUnlockAlt,faEnvelope} from '@fortawesome/free-solid-svg-icons'
 import {UseForm} from './UseForm'
 import validate from '../validate'
 
+
 const RegisterComponent = () => {
-    const {inputValue, error,handleSubmit, onChangeValue, removeFields} = UseForm(validate);
     const focusInput = useRef('');
-    
+    const {inputValue, error,handleSubmit, onChangeValue, removeFields} = UseForm(validate);
+
     useEffect( () => {
         focusInput.current.focus();
     },[])
-
+    
     return(
         <div className="register-container">
             <header className="header">
@@ -19,7 +20,7 @@ const RegisterComponent = () => {
                 <div className="underline"></div>
             </header>
             <div className="form-container">
-                <form autoComplete="off">
+                <form autoComplete="on">
                         <div className='input-div'>
                             <input
                                 type='text' 
@@ -58,18 +59,18 @@ const RegisterComponent = () => {
                             <input
                                 type='password' 
                                 placeholder='Confirm Password'
-                                name='confirmPassword'
-                                value={inputValue.confirmPassword}
+                                name='confirm_password'
+                                value={inputValue.confirm_password}
                                 onChange={(e)=>onChangeValue(e)}  
                             />
                             <FontAwesomeIcon icon={faUnlockAlt} className="icon"></FontAwesomeIcon>
-                            {error.confirmPassword ? <p style={{color: 'red'}}>{error.confirmPassword}</p> : null}                        
+                            {error.confirm_password ? <p style={{color: 'red'}}>{error.confirm_password}</p> : null}                        
                         </div>
                     <div className="btn-container">
-                        <div className="btn-div">
+                        <div>
                             <button className="btn" onClick={removeFields}>RESET</button>
                         </div>
-                        <div className="btn-div">
+                        <div>
                             <button className="btn" onClick={handleSubmit}>SUBMIT</button>
                         </div>
                     </div>

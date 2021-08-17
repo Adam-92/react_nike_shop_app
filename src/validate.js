@@ -8,8 +8,8 @@ export default function validate (inputValues){
     //username
     if(!inputValues.username){
         error.username = "Please fill the username field";
-    }else if(inputValues.username.length < 5 || inputValues.username.length > 15){
-        error.username = "Username must have 5-15 characters";
+    }else if(inputValues.username.length < 4 || inputValues.username.length > 26){
+        error.username = "Username must have 8-26 characters";
     }else if (illegalCharsUserPass.test(inputValues.username)) {
         error.username = "Please enter valid Username. Use only letters, numbers, and underscores";
     }  
@@ -24,16 +24,18 @@ export default function validate (inputValues){
     //password
     if(!inputValues.password){
         error.password = "Please fill the password field";
+    }else if(inputValues.password.length < 4 || inputValues.password.length > 64){
+        error.password = "Password must have 8-64 characters";
     }else if(illegalCharsUserPass.test(inputValues.password)){
         error.password = "Please enter valid password. Use only letters, numbers, and underscores"
     }
     //confirm password
-    if(!inputValues.confirmPassword){
-        error.confirmPassword = "Please fill the confrim password field";
-    }else if(illegalCharsUserPass.test(inputValues.confirmPassword)){
-        error.confirmPassword = "Please enter valid confrim password. Use only letters, numbers, and underscores";
-    }else if(inputValues.password !== inputValues.confirmPassword){
-        error.confirmPassword = "The password is not the same";
+    if(!inputValues.confirm_password){
+        error.confirm_password = "Please fill the confirm password field";
+    }else if(illegalCharsUserPass.test(inputValues.confirm_password)){
+        error.confirm_password = "Please enter valid confrim password. Use only letters, numbers, and underscores";
+    }else if(inputValues.password !== inputValues.confirm_password){
+        error.confirm_password = "The password is not the same";
     }
     
     return error;

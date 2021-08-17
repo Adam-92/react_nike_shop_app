@@ -1,8 +1,13 @@
 import React from 'react'
+import { useGlobalContext } from '../context'
+import Tabs from './Tabs'
 
 const Layout = ( {children} ) => {
+    
+    const {tab,switchTab} = useGlobalContext(); 
+
     return(
-        <main>
+        <main className="page">
           <article>
             <section className="img-section">
                 {/*place for the left section photo*/}
@@ -15,7 +20,10 @@ const Layout = ( {children} ) => {
                 </div>
             </section>
             <section className="main-section">
-                {/*place for the component*/}
+                <Tabs 
+                    tab={tab} 
+                    switchTab={switchTab}
+                />
                 {children}
             </section>
          </article>
