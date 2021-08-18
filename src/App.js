@@ -4,14 +4,14 @@ import {Switch, Route, useLocation} from 'react-router-dom'
 import Register from './page/Register'
 import Error from './page/Error'
 import Login from './page/Login'
-
+import ShoppingPage from './page/ShoppingPage'
 
 function App () {
   const location = useLocation();
   return (
         <TransitionGroup>
           <CSSTransition 
-            timeout={500}
+            timeout={1000}
             classNames="fade"
             key={location.key}
           >
@@ -24,6 +24,9 @@ function App () {
               </Route>
               <Route path="/login" exact>
                 <Login />
+              </Route>
+              <Route path="/user">
+                <ShoppingPage/>
               </Route>
               <Route path="*">
                 <Error />
