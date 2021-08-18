@@ -70,14 +70,13 @@ section{
 
 .tabs-container{
   position: relative;
-  top: -2%;
+  top: 4%;
   display: flex;
   justify-content:center;
   width: 50%;
   color: white;
   cursor:pointer;
-  margin-top: 4em;
-  margin-bottom: 3em;
+  margin-bottom: 5em;
   background-color: white;
   border-radius: 2em;
 }
@@ -91,7 +90,7 @@ height: 100%;
 background: linear-gradient(to right, #ff105f, #ffad06);
 border-radius: 2em;
 opacity: 0.75;
-transition: all ease 2s;
+transition: all ease 1s;
 }
 
 .toggle{
@@ -358,7 +357,8 @@ footer{
     background-size: cover;
   }
   .tabs-container{
-    top: -6%;
+    top: 9%;
+    margin-bottom: 12em;
   }
   .tab-btn{
     font-size: 2rem;
@@ -382,42 +382,23 @@ footer{
   }
 }
 /*------END OF RESPONSIVE-----------------*/
-/*------ANIMATIONS------------------------*/
+
+/*------ANIMATIONS FOR TRANSITION GROUP----*/
 .fade-enter {
   opacity: 0;
 }
 .fade-enter-active {
   opacity: 1;
-  transition: opacity 1000ms;
+  transition: opacity 500ms;
 }
 .fade-exit {
   opacity: 1;
 }
 .fade-exit-active {
   opacity: 0;
-  transition: opacity 1000ms;
+  transition: opacity 500ms;
 }
 
-
-/*start*/
-.trasform-enter{  
-  transform:translateX(100%);
-}
-/*animation*/
-.transform-enter-active{
-  transform: translateX(0%);
-  transition: all 1000ms;
- 
-}
-.transform-exit{
-  transform: translateX(0%);
-}
-.transform-exit-active{
-  
-  transform: translateX(-100%);
-  transition: all 1000ms;
-  
-}
-/*------END OF ANIMATIONS------------------*/
+/*------END OF ANIMATIONS FOR TRANSITION GROUP-*/
 
 
