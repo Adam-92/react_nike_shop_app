@@ -349,6 +349,33 @@ footer{
  background-color: white;
  border-radius: 50%;
 }
+.shoesContainer-shoppingPage{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  border: 2px greenyellow solid;
+  margin: 0 2em;
+  min-height: 60%;
+  max-width: 1200px;
+}
+.shoe{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border: 2px white solid;
+}
+
+footer{
+  margin:0;
+}
+.img-shoe{
+  
+}
+img{
+  object-fit:fill;
+  height: 100px;
+}
 
 /*----END OF SHOPPING PAGE-------------------*/
 
