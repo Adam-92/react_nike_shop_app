@@ -362,7 +362,6 @@ article.min-height-shoppingPage{
 
 /*----SHOES CONTAINER COMPONENT--------------*/
 .shoesContainer-shoppingPage{
-  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
   column-gap: 1em;
@@ -414,6 +413,10 @@ img{
 @media screen and (max-width: 768px) {
   html{
     font-size: 12px;
+  }
+  article{
+    height: 100%;
+    width: 100%;
   }
   .main-section{
     background: url('https://i.pinimg.com/originals/53/83/fa/5383faafa5316d71036c2ece988293bb.jpg');
