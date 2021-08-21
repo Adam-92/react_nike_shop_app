@@ -50,7 +50,7 @@ const databaseShoes = [
         },
         {
         id: 8,
-        modelName: 'Runallday 2 CD0223 007',
+        modelName: 'Runallday 2 CD0223 007 Thunder Blue X212',
         price: 269.00 ,
         img: 'https://www.eobuwie.com.pl/media/catalog/product/cache/image/800x800/0/0/0000208565691_01_rz.jpg',
         availableSize: '40/41/42'

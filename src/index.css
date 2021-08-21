@@ -272,7 +272,7 @@ input:focus + .icon{
 .success-container{
   position: relative;
   width: 70%;
-  max-width: 600px;
+  max-width: 500px;
   min-width: 320px;
   height: auto;
   min-height: 550px;
@@ -357,7 +357,11 @@ article.min-height-shoppingPage{
  background-color: white;
  border-radius: 50%;
 }
-
+.icon-cart-shoppingPage{
+  font-size: 2.2em;
+  color: rgb(248, 8, 28);
+  cursor:pointer;
+}
 /*----END OF SHOPPING PAGE COMPONENT-------------------*/
 
 /*----SHOES CONTAINER COMPONENT--------------*/
@@ -366,7 +370,7 @@ article.min-height-shoppingPage{
   grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
   column-gap: 1em;
   row-gap: 1em;
-  border: 2px greenyellow solid;
+  max-width: calc(100vw - 400px);
 }
 /*-----END OF SHOES CONTAINER COMPONENT------*/
 
@@ -377,6 +381,7 @@ article.min-height-shoppingPage{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   border: 2px white solid;
 }
 .modelName{
@@ -392,8 +397,14 @@ img{
 
 /*----COUNTER COMPONENT---------------*/
 .container-counter{
-  width: 20%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  min-height: 100%;
+  min-width: 350px;
+  color: black;
   background-color: rgb(248, 245, 239);
+  transition: all .5s ease;
 }
 /*----END OF COUNTER COMPONENT--------*/
 
@@ -406,7 +417,6 @@ img{
   font-size: 6em;
 }
 /*------END OF ERROR COMPONENT ----*/
-
 
 
 /*------RESPONSIVE-----------------*/
@@ -447,6 +457,21 @@ img{
   .success-container{
     min-width: 285px;
     min-height: 500px;
+  }
+  .header-shoppingPage{
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.2rem;
+    margin: 3em 0;
+  }
+  .container-counter{
+    transform: translateX(100%);
+  }
+  .show-counter{
+    transform: translateX(0%);
+  }
+  .shoesContainer-shoppingPage{
+    max-width: 100%;
   }
 }
 /*------END OF RESPONSIVE-----------------*/
