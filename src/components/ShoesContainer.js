@@ -5,12 +5,9 @@ const ShoesContainer = ( {shoes} ) => {
     return(
         <div className="shoesContainer-shoppingPage">
             {shoes.map(shoe => {
-                const {id} = shoe.id;
-                const {modelName} = shoe.modelName;
-                const {img} = shoe.img;
-                const availableSize = shoe.availableSize;
+                const id = shoe.id;
                 return(
-                    <Shoe {...shoe} />
+                    <Shoe {...shoe} key={id} />
                 )
             })}
         </div>

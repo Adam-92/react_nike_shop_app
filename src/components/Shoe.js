@@ -3,17 +3,18 @@ import React from 'react'
 const Shoe = ( {id,modelName,price,availableSize,img}) =>{
     return(
         <div className="shoe">
-            <header>
-                <h2>{modelName}</h2>
-                <div className="underline"></div>
-            </header>
-            <div className="img-shoe">
+            <div>
                 <img src={img}></img>
             </div>
-            <footer>
-                <p>{availableSize}</p>
-                <p>{price}</p>
-            </footer>
+            <header>
+                <h3 className="modelName">
+                    {modelName}
+                </h3>
+            </header>
+            <div>
+                <p>Size: {availableSize}</p>
+                <p>Price: {price}$</p>
+            </div>
         </div>
     )
 }
