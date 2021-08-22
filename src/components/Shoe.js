@@ -2,12 +2,12 @@ import React from 'react'
 
 const Shoe = ( {id,modelName,price,availableSize,img}) =>{
     return(
-        <div className="shoe">
+        <div className="container-shoe">
             <div>
                 <img src={img}></img>
             </div>
             <header>
-                <h3 className="modelName">
+                <h3 className="name-shoe">
                     {modelName}
                 </h3>
             </header>

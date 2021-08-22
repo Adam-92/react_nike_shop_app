@@ -3,7 +3,7 @@ import Shoe from './Shoe'
 
 const ShoesContainer = ( {shoes} ) => {
     return(
-        <div className="shoesContainer-shoppingPage">
+        <div className="container-shoesContainer">
             {shoes.map(shoe => {
                 const id = shoe.id;
                 return(

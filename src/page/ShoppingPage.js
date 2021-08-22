@@ -1,25 +1,26 @@
-import React,{useState} from 'react'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle,faCartArrowDown } from '@fortawesome/free-solid-svg-icons'
+import { useGlobalContext } from '../context' 
 import ShoesContainer from '../components/ShoesContainer'
-import Counter from '../components/Counter'
+import Cart from '../components/Cart'
 import databaseShoes from '../databaseShoes'
 
 const ShoppingPage = () => {
-    const [openCounter,setOpenCounter] = useState(false);
+   const {openCounterFunc} = useGlobalContext();
     
     return(
-        <main className="height-auto-shoppingPage">
-            <article className="min-height-shoppingPage">
+        <main className="container-shoppingPage">
+            <article className="content-shoppingPage">
                 <div className="flex-grow-shoppingPage">
                     <header className="header-shoppingPage">
                         <FontAwesomeIcon icon={faUserCircle} className="icon-shoppingPage"/>
                         <h1>Welcome in Our Shop Julia!</h1>
-                        <FontAwesomeIcon icon={faCartArrowDown} className="icon-cart-shoppingPage" onClick={()=>setOpenCounter(!openCounter)}/>
+                        <FontAwesomeIcon icon={faCartArrowDown} className="icon-cart-shoppingPage" onClick={openCounterFunc}/>
                     </header>
                     <ShoesContainer shoes={databaseShoes} />
                 </div>
-                <Counter openCounter={openCounter}/>
+                <Cart/>
             </article>
         </main>
     )
