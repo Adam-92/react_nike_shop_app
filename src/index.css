@@ -368,7 +368,7 @@ article.content-shoppingPage{
   grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
   column-gap: 1em;
   row-gap: 1em;
-  max-width: calc(100vw - 400px);
+  max-width: calc(100vw - 420px);
 }
 /*-----END OF SHOES CONTAINER COMPONENT------*/
 
@@ -386,10 +386,14 @@ article.content-shoppingPage{
   border-bottom: 2px solid rgb(32, 91, 253);
 }
 
-img{
-  object-fit: cover;
+.img-shoe img{
+  object-fit:cover;
   height: 100%;
   width: 100%;
+}
+.information-shoe{
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 /*----END OF SHOE COMPONENT-----------*/
 
@@ -421,12 +425,38 @@ img{
 
 /*----CART ITEM CONTAINER COMPONENT--*/
 .container-cartItemContainer{
-  display: grid;
+  margin-top: 2em;
+  min-width: 350px;
 }
 /*----END OF CART ITEM CONTAINER COMPONENT---*/
 
 /*----CART ITEM COMPONENT--------------------*/
-  
+.container-cartItem{
+  display: grid;
+  grid-template-columns: 120px 40% auto;
+  background-color: white;
+  color: black;
+}
+
+.picture-cartItem img{
+  object-fit:cover;
+  height: 100%;
+  width: 100%;
+}
+.name-cartItem{
+  margin: 0.5em auto;
+  text-align:center;
+}
+.price-cartItem{
+  margin-top: 2em;
+}
+.quantity-cartItem{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  cursor:pointer
+}
 /*----END OF CART ITEM COMPONENT-------------*/
 
 /*------ERROR COMPONENT (IF YOU GO TO UNKNOWN ROUTE)----*/

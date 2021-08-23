@@ -8,7 +8,6 @@ const Cart = () => {
     const data = useGlobalContext();
     const {openCart,closeCartFunc} = useGlobalContext();
 
-    console.log(data);
     return(
         <div className={`container-cart ${openCart && 'show-cart'}`}>
             <div className="content-cart">

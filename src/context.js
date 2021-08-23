@@ -5,9 +5,13 @@ const AppContext = React.createContext();
 const AppProvider = ( {children} ) => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
+    
     const [tab, setTab] = useState(false);
+    //open/close cart side component
     const [openCart,setOpenCart] = useState(false);
-    //if it's true then return in PAGE-> Register, RegisterSucces component
+    //array for gathering picked shoes and then display them into cart
+    const [cart, setCart] = useState([]);
+
     const submitedForm = () => {
         setIsSubmitted(true);
     }
@@ -29,6 +33,11 @@ const AppProvider = ( {children} ) => {
     const closeCartFunc = () => {
         setOpenCart(false)
     }
+
+    const putShoeIntoCart = (id) => {
+        
+    }
+
 
     return(
         <AppContext.Provider value={
