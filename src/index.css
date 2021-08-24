@@ -331,34 +331,43 @@ footer{
 /*----SHOPPING PAGE COMPONENT -------------------------*/
 main.container-shoppingPage{
   height: auto;
-  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #0aa3e4, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 article.content-shoppingPage{
+  flex-direction: column;
   min-height: 100vh;
-  margin-left: 3em;
   width: 100%;
   justify-content: space-between;
   color: white;
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #0aa3e4, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-.flex-grow-shoppingPage{
-  flex-grow: 1;
+.nav-shoppingPage{
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: rgb(17, 17, 16);
 }
 .header-shoppingPage{
   display: flex;
-  font-size: 1.5rem;
-  margin: 2em 4em;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 3em;
+  margin: 0.5em 3em
 }
-.icon-shoppingPage{
- font-size: 2.2em;
- margin-right: 10px;
- color: orange;
- background-color: white;
- border-radius: 50%;
+.welcome-shoppingPage{
+  font-size: 2.5rem;
 }
+
+.icon-person-shoppingPage{
+  color: orange;
+  background-color: white;
+  border-radius: 50%;
+ }
 .icon-cart-shoppingPage{
-  display: none;
+  color: rgb(228, 23, 23);
+  background-color: transparent;
+  cursor: pointer
 }
 /*----END OF SHOPPING PAGE COMPONENT-------------------*/
 
@@ -368,7 +377,8 @@ article.content-shoppingPage{
   grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
   column-gap: 1em;
   row-gap: 1em;
-  max-width: calc(100vw - 420px);
+  width: 80%;
+  margin: 2em auto;
 }
 /*-----END OF SHOES CONTAINER COMPONENT------*/
 
@@ -402,11 +412,16 @@ article.content-shoppingPage{
   position: fixed;
   top: 0;
   right: 0;
-  min-height: 100%;
-  min-width: 350px;
+  height: 100%;
+  min-width: 450px;
+  max-width: 500px;
   color: black;
   background-color: rgb(248, 245, 239);
   transition: all .5s ease;
+  transform: translateX(100%);
+}
+.show-cart{
+  transform: translateX(0%);
 }
 .content-cart{
   margin: 3em;
@@ -418,15 +433,32 @@ article.content-shoppingPage{
   border-bottom: 2px solid blue;
 }
 .icon-close-cart{
-  display: none;
+  position: absolute;
+  top: 3%;
+  right: 10%;
+  font-size: 2em;
+  cursor: pointer;
 }
 
 /*----END OF CART COMPONENT--------*/
 
 /*----CART ITEM CONTAINER COMPONENT--*/
 .container-cartItemContainer{
+  display: flex;
+  flex-direction: column;
   margin-top: 2em;
-  min-width: 350px;
+  max-width: 350px;
+}
+.button-cartItemContainer{
+  font-weight: 500;
+  padding: 0.5em;
+  margin-top: 1.5em;
+  cursor: pointer;
+  
+}
+.total-cartItemContainer{
+  margin: 1em auto;
+  border-bottom: 2px solid black; 
 }
 /*----END OF CART ITEM CONTAINER COMPONENT---*/
 
@@ -448,15 +480,25 @@ article.content-shoppingPage{
   text-align:center;
 }
 .price-cartItem{
-  margin-top: 2em;
+  margin-top: 1em;
+  font-size: 1.5rem;
 }
 .quantity-cartItem{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2em;
-  cursor:pointer
 }
+.icon-cartItem{
+  font-size: 1.5em;
+  cursor:pointer;
+}
+.quantity-cartItem p{
+  font-size: 2em;
+  font-weight: 500;
+  margin: 0 2px;
+}
+
+
 /*----END OF CART ITEM COMPONENT-------------*/
 
 /*------ERROR COMPONENT (IF YOU GO TO UNKNOWN ROUTE)----*/
@@ -509,34 +551,18 @@ article.content-shoppingPage{
     min-width: 285px;
     min-height: 500px;
   }
+  .container-shoesContainer{
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  }
   .header-shoppingPage{
-    justify-content: space-around;
-    align-items: center;
-    font-size: 1.2rem;
-    margin: 3em 0;
+    font-size: 2.5em;
+    margin: 0.5em 1em;
   }
-  .icon-cart-shoppingPage{
-    display: block;
-    font-size: 2.2em;
-    color: rgb(248, 8, 28);
-    cursor:pointer;
-  }
-  .icon-close-cart{
-    display: block;
-    position: absolute;
-    top: 3%;
-    right: 10%;
-    font-size: 2em;
-    color: rgb(228, 23, 23);
-    background-color: transparent;
-    cursor: pointer
+  .welcome-shoppingPage{
+    font-size: 1.6rem;
   }
   .container-cart{
     min-width: 70%;
-    transform: translateX(100%);
-  }
-  .show-cart{
-    transform: translateX(0%);
   }
   .container-shoesContainer{
     max-width: 100%;

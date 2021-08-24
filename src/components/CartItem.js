@@ -18,9 +18,9 @@ const CartItem = ({img, modelName,price,id}) => {
             </div>
 
             <div className="quantity-cartItem">                
-                <FontAwesomeIcon icon={faChevronLeft}/>
+                <FontAwesomeIcon icon={faChevronLeft} className="icon-cartItem"/>
                     <p>0</p>
-                <FontAwesomeIcon icon={faChevronRight}/>
+                <FontAwesomeIcon icon={faChevronRight} className="icon-cartItem"/>
             </div>
         </div>
     )

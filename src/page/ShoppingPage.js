@@ -12,14 +12,14 @@ const ShoppingPage = () => {
     return(
         <main className="container-shoppingPage">
             <article className="content-shoppingPage">
-                <div className="flex-grow-shoppingPage">
+                <nav className="nav-shoppingPage">
                     <header className="header-shoppingPage">
-                        <FontAwesomeIcon icon={faUserCircle} className="icon-shoppingPage"/>
-                        <h1>Welcome in Our Shop Julia!</h1>
-                        <FontAwesomeIcon icon={faCartArrowDown} className="icon-cart-shoppingPage" onClick={openCartFunc}/>
+                        <FontAwesomeIcon icon={faUserCircle} className="icon-shoppingPage icon-person-shoppingPage"/>
+                        <p className="welcome-shoppingPage">Welcome in Our Shop Julia!</p>
+                        <FontAwesomeIcon icon={faCartArrowDown} className="icon-shoppingPage icon-cart-shoppingPage" onClick={openCartFunc}/>
                     </header>
-                    <ShoesContainer shoes={databaseShoes} />
-                </div>
+                </nav>
+                <ShoesContainer shoes={databaseShoes} />
                 <Cart/>
             </article>
         </main>
