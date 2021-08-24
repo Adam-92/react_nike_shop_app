@@ -391,7 +391,14 @@ article.content-shoppingPage{
   align-items: center;
   cursor: pointer;
   border: 2px white solid;
+  transition: opacity 1s ease;
+  opacity: 1;
 }
+.animation-shoe{
+  background:rgb(245, 237, 221);
+  opacity: 0.3;
+}
+
 .name-shoe{
   border-bottom: 2px solid rgb(32, 91, 253);
 }
