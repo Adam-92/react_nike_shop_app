@@ -1,29 +1,24 @@
-import React,{useState} from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHandPointUp } from '@fortawesome/free-solid-svg-icons';
+import React from 'react'
 
 const Shoe = ( {id,modelName,price,availableSize,img}) =>{
-    //Show icon while on MouseMove 
-    const [showPickIcon,setShowPickIcon] = useState(false);
-    console.log(showPickIcon);
     return(
-        <div className="container-shoe" onMouseOver={()=>{setShowPickIcon(true)}}>
-            
+        <div className="container-shoe">
             <div className="img-shoe">
                 <img src={img}></img>
             </div>
             <div>
-                <h3 className="name-shoe">
+                <p className="name-shoe">
                     {modelName}
-                </h3>
+                    <div className="underline-shoe"></div>
+                </p>
             </div>
             <div className="information-shoe">
                 <p>Size: {availableSize}</p>
                 <p>Price: {price}$</p>
             </div>
-            <div className="animation-shoe">
-                <FontAwesomeIcon icon={faHandPointUp} />
-            </div> 
+            <div className="putIntoCart-shoe">
+                <button>ADD TO CART</button>
+            </div>
         </div>
     )
 }

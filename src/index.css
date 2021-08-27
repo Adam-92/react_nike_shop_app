@@ -347,7 +347,9 @@ article.content-shoppingPage{
   top: 0;
   width: 100%;
   background-color: rgb(17, 17, 16);
+  z-index: 2;
 }
+
 .header-shoppingPage{
   display: flex;
   justify-content: space-around;
@@ -377,7 +379,7 @@ article.content-shoppingPage{
   grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
   column-gap: 1em;
   row-gap: 1em;
-  width: 80%;
+  width: 70%;
   margin: 2em auto;
 }
 /*-----END OF SHOES CONTAINER COMPONENT------*/
@@ -385,22 +387,74 @@ article.content-shoppingPage{
 /*----SHOE COMPONENT--------------*/
 
 .container-shoe{
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
   border: 2px white solid;
-  transition: opacity 1s ease;
+}
+.container-shoe::before{
+  content: '';
+  position: absolute;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  background-color: darkslategrey; 
+  transition: all ease 1s;
+}
+.container-shoe:hover::before{
+  opacity:0.5;
+}
+.container-shoe::after{
+  content: "\f0a6";
+  position: absolute;
+  top: 30%;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 10em;
+  opacity: 0;
+  transition: all ease 1s;
+}
+.container-shoe:hover::after{
   opacity: 1;
 }
-.animation-shoe{
-  background:rgb(245, 237, 221);
-  opacity: 0.3;
+
+.putIntoCart-shoe{
+  position: absolute;
+  top: 6%;
+  opacity: 0;
+  transition: all ease 1s;
+}
+.putIntoCart-shoe button{
+  position: relative;
+  color: white;
+  padding: 0.6em 2em;
+  border: none;
+  border-radius: 3em;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background-color:orange;
+}
+.putIntoCart-shoe button:hover{
+  background-color: orange;
+  color:rgb(10, 160, 55);
+  font-weight: 700;
 }
 
+.container-shoe:hover > .putIntoCart-shoe{
+  opacity: 1;
+}
 .name-shoe{
-  border-bottom: 2px solid rgb(32, 91, 253);
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+.underline-shoe{
+  width: 12em;
+  height: 0.3em;
+  margin: 0.1em auto;
+  background-color: rgb(79, 79, 247);
 }
 
 .img-shoe img{
@@ -417,6 +471,7 @@ article.content-shoppingPage{
 /*----CART COMPONENT---------------*/
 .container-cart{
   position: fixed;
+  z-index: 3;
   top: 0;
   right: 0;
   height: 100%;
@@ -457,11 +512,16 @@ article.content-shoppingPage{
   max-width: 350px;
 }
 .button-cartItemContainer{
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 900;
   padding: 0.5em;
   margin-top: 1.5em;
   cursor: pointer;
-  
+  background-color: rgb(223, 233, 177);
+  color: rgb(255, 255, 255);
+}
+.button-cartItemContainer:hover{
+  color:  red;
 }
 .total-cartItemContainer{
   margin: 1em auto;
@@ -566,7 +626,10 @@ article.content-shoppingPage{
     margin: 0.5em 1em;
   }
   .welcome-shoppingPage{
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+  }
+  .putIntoCart-shoe button{
+    font-size: 1.4rem;
   }
   .container-cart{
     min-width: 70%;

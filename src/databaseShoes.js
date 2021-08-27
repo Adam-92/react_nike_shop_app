@@ -22,35 +22,35 @@ const databaseShoes = [
         },
         {
         id: 4,
-        modelName: 'Quest 2 CI3787 009 Smoke Grey/Dk',
+        modelName: 'Quest 2 CI3787 009 Smoke Grey',
         price: 199.00 ,
         img: 'https://www.eobuwie.com.pl/media/catalog/product/cache/image/800x800/0/0/0000208729659_01_pa.jpg',
         availableSize: '44/45/46'
         },
         {
         id: 5,
-        modelName: 'Quest 3 CD0230 016 Off Noir/Thunder Blue',
+        modelName: 'Quest 3 CD0230 016 Off Noir',
         price: 399.00 ,
         img: 'https://www.eobuwie.com.pl/media/catalog/product/cache/image/800x800/0/0/0000208729741_01_wj.jpg',
         availableSize: '40/41/42'
         },
         {
         id: 6,
-        modelName: 'Quest 3 CD0230 001 Black/Dk Smoke Grey',
+        modelName: 'Quest 3 CD0230 001 Black/Dk ',
         price: 189.00 ,
         img: 'https://www.eobuwie.com.pl/media/catalog/product/cache/image/800x800/0/0/0000208425414_01_rz.jpg',
         availableSize: '42/45/46'
         },
         {
         id: 7,
-        modelName: 'Quest 3 CD0230 016 Off Noir/Thunder Blue',
+        modelName: 'Quest 3 CD0230 016 Off Noir',
         price: 399.00 ,
         img: 'https://www.eobuwie.com.pl/media/catalog/product/cache/image/800x800/0/0/0000208729741_01_wj.jpg',
         availableSize: '40/41/42'
         },
         {
         id: 8,
-        modelName: 'Runallday 2 CD0223 007 Thunder Blue X212',
+        modelName: 'Runallday 2 CD0223 007 Thunder',
         price: 269.00 ,
         img: 'https://www.eobuwie.com.pl/media/catalog/product/cache/image/800x800/0/0/0000208565691_01_rz.jpg',
         availableSize: '40/41/42'
