@@ -1,17 +1,20 @@
 import React, {useState,useContext} from 'react';
+import databaseShoes from './databaseShoes';
 
 const AppContext = React.createContext();
 
 const AppProvider = ( {children} ) => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
-    
-    const [tab, setTab] = useState(false);
-    //open/close cart side component
-    const [openCart,setOpenCart] = useState(false);
-    //array for gathering picked shoes and then display them into cart
-    const [cart, setCart] = useState([]);
 
+    const [tab, setTab] = useState(false);
+    //js file with the database shoes 
+    const [dataShoes, setDataShoes] = useState(databaseShoes);
+    //open/close cart component
+    const [openCart,setOpenCart] = useState(false);
+    //array for gathering picked shoes 
+    const [cart, setCart] = useState([]);
+    console.log(cart);
     const submitedForm = () => {
         setIsSubmitted(true);
     }
@@ -33,11 +36,11 @@ const AppProvider = ( {children} ) => {
     const closeCartFunc = () => {
         setOpenCart(false)
     }
-
-    const putShoeIntoCart = (id) => {
+    const addToCart = (shoe) => {
+        //check if shoe is not already in the cart
         
+        setCart([...cart, shoe]);
     }
-
 
     return(
         <AppContext.Provider value={
@@ -46,12 +49,15 @@ const AppProvider = ( {children} ) => {
               loading,
               tab,
               openCart,
+              dataShoes,
+              cart,
               turnOnLoading,
               turnOffLoading,
               submitedForm,
               switchTab,
               openCartFunc,
-              closeCartFunc
+              closeCartFunc,
+              addToCart
             }
         }>
 

@@ -1,6 +1,22 @@
 import React from 'react'
+import {useGlobalContext} from '../context'
 
 const Shoe = ( {id,modelName,price,availableSize,img}) =>{
+    const {dataShoes,addToCart,cart} = useGlobalContext();
+
+    const putIntoCart = (id) =>{
+        //find in dataShoes correct shoe by ID
+        const shoe = dataShoes.find(shoe => shoe.id === id);
+        //add shoe if cart is empty
+        if(cart.length  === 0){
+            addToCart(shoe);
+        }else{
+            //if cart is not empty check the content to not double the shoe
+            const checkShoe = cart.some(item => item.id === shoe.id)
+            return checkShoe ? '' : addToCart(shoe);
+        }
+    }
+
     return(
         <div className="container-shoe">
             <div className="img-shoe">
@@ -17,7 +33,7 @@ const Shoe = ( {id,modelName,price,availableSize,img}) =>{
                 <p>Price: {price}$</p>
             </div>
             <div className="putIntoCart-shoe">
-                <button>ADD TO CART</button>
+                <button onClick={()=>putIntoCart(id)}>ADD TO CART</button>
             </div>
         </div>
     )

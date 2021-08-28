@@ -1,12 +1,18 @@
 import React from 'react'
 import CartItem from './CartItem'
+import {useGlobalContext} from '../context'
 
 const CartItemContainer =  () => {
-    const cart = [];
+    const {cart} = useGlobalContext();
 
     return(
         <div className="container-cartItemContainer">
-            <CartItem />
+            {cart.map(shoe => {
+                const id = shoe.id;
+                return(
+                    <CartItem {...shoe} key={id}/>
+                )
+            })}
             <button className="button-cartItemContainer">
                 CLEAR CART
             </button>

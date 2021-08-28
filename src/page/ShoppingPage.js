@@ -4,10 +4,10 @@ import { faUserCircle,faCartArrowDown } from '@fortawesome/free-solid-svg-icons'
 import { useGlobalContext } from '../context' 
 import ShoesContainer from '../components/ShoesContainer'
 import Cart from '../components/Cart'
-import databaseShoes from '../databaseShoes'
 
 const ShoppingPage = () => {
    const {openCartFunc} = useGlobalContext();
+   const {dataShoes} = useGlobalContext();
     
     return(
         <main className="container-shoppingPage">
@@ -19,7 +19,7 @@ const ShoppingPage = () => {
                         <FontAwesomeIcon icon={faCartArrowDown} className="icon-shoppingPage icon-cart-shoppingPage" onClick={openCartFunc}/>
                     </header>
                 </nav>
-                <ShoesContainer shoes={databaseShoes} />
+                <ShoesContainer shoes={dataShoes} />
                 <Cart/>
             </article>
         </main>
