@@ -3,7 +3,7 @@ import CartItem from './CartItem'
 import {useGlobalContext} from '../context'
 
 const CartItemContainer =  () => {
-    const {cart} = useGlobalContext();
+    const {cart,clearCart} = useGlobalContext();
 
     return(
         <div className="container-cartItemContainer">
@@ -13,7 +13,7 @@ const CartItemContainer =  () => {
                     <CartItem {...shoe} key={id}/>
                 )
             })}
-            <button className="button-cartItemContainer">
+            <button className="button-cartItemContainer" onClick={clearCart}>
                 CLEAR CART
             </button>
             <div className="total-cartItemContainer">

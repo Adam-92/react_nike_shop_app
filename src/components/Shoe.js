@@ -1,19 +1,25 @@
 import React from 'react'
 import {useGlobalContext} from '../context'
 
-const Shoe = ( {id,modelName,price,availableSize,img}) =>{
+const Shoe = React.forwardRef( ({id,modelName,price,availableSize,img}, ref) =>{
     const {dataShoes,addToCart,cart} = useGlobalContext();
 
-    const putIntoCart = (id) =>{
+    const putIntoCart = (e,id) =>{
         //find in dataShoes correct shoe by ID
         const shoe = dataShoes.find(shoe => shoe.id === id);
-        //add shoe if cart is empty
-        if(cart.length  === 0){
+        //take the target DOM shoe
+        const item = e.target;
+        //add shoe and check the content to not double the shoe
+        const checkShoe = cart.some(item => item.id === shoe.id);
+
+        if(!checkShoe){
+            //change the status-style of added shoe
+            item.innerText = 'IN CART';
+            item.style.color = 'green';
+            item.style.backgroundColor = 'white';
+            item.style.cursor = 'default';
+            item.disabled = true;
             addToCart(shoe);
-        }else{
-            //if cart is not empty check the content to not double the shoe
-            const checkShoe = cart.some(item => item.id === shoe.id)
-            return checkShoe ? '' : addToCart(shoe);
         }
     }
 
@@ -33,10 +39,10 @@ const Shoe = ( {id,modelName,price,availableSize,img}) =>{
                 <p>Price: {price}$</p>
             </div>
             <div className="putIntoCart-shoe">
-                <button onClick={()=>putIntoCart(id)}>ADD TO CART</button>
+                <button onClick={(e)=>putIntoCart(e,id)} ref={ref} data-id={id} >ADD TO CART</button>
             </div>
         </div>
     )
-}
+})
 
 export default Shoe;

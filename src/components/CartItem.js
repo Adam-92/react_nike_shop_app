@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight,faChevronLeft} from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight,faChevronLeft, faWindowClose} from '@fortawesome/free-solid-svg-icons'
 
 const CartItem = ( {img,modelName,price}) => {
     return(
@@ -22,6 +22,7 @@ const CartItem = ( {img,modelName,price}) => {
                     <p>0</p>
                 <FontAwesomeIcon icon={faChevronRight} className="icon-cartItem"/>
             </div>
+            <FontAwesomeIcon icon={faWindowClose} className="icon-close-cartItem"/>
         </div>
     )
 }

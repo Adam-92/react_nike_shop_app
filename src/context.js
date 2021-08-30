@@ -38,8 +38,10 @@ const AppProvider = ( {children} ) => {
     }
     const addToCart = (shoe) => {
         //check if shoe is not already in the cart
-        
         setCart([...cart, shoe]);
+    }
+    const clearCart = () => {
+        setCart([]);
     }
 
     return(
@@ -57,7 +59,8 @@ const AppProvider = ( {children} ) => {
               switchTab,
               openCartFunc,
               closeCartFunc,
-              addToCart
+              addToCart,
+              clearCart
             }
         }>
 
