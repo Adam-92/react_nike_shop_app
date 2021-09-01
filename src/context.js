@@ -14,7 +14,13 @@ const AppProvider = ( {children} ) => {
     const [openCart,setOpenCart] = useState(false);
     //array for gathering picked shoes 
     const [cart, setCart] = useState([]);
-    console.log(cart);
+    //btn refs - used to change the DOM status PUT IN CART/ IN CART
+    const [btnRefs, setBtnRefs] = useState([]);
+
+    const addRef = (ref) => {
+        setBtnRefs([...btnRefs, ref]);
+    }
+
     const submitedForm = () => {
         setIsSubmitted(true);
     }
@@ -43,6 +49,9 @@ const AppProvider = ( {children} ) => {
     const clearCart = () => {
         setCart([]);
     }
+    const newCart = (cart) => {
+        setCart(cart);
+    }
 
     return(
         <AppContext.Provider value={
@@ -53,6 +62,8 @@ const AppProvider = ( {children} ) => {
               openCart,
               dataShoes,
               cart,
+              btnRefs,
+              addRef,
               turnOnLoading,
               turnOffLoading,
               submitedForm,
@@ -60,7 +71,8 @@ const AppProvider = ( {children} ) => {
               openCartFunc,
               closeCartFunc,
               addToCart,
-              clearCart
+              clearCart,
+              newCart
             }
         }>
 

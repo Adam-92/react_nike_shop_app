@@ -1,9 +1,11 @@
 import React from 'react'
 import {useGlobalContext} from '../context'
 
-const Shoe = React.forwardRef( ({id,modelName,price,availableSize,img}, ref) =>{
-    const {dataShoes,addToCart,cart} = useGlobalContext();
-
+const Shoe = ( {id,modelName,price,availableSize,img} ) =>{
+    const {dataShoes,addToCart,cart, addRef} = useGlobalContext();
+    //create ref to button
+    let buttonRef = React.createRef();
+    //function that put shoe into cart stored in context
     const putIntoCart = (e,id) =>{
         //find in dataShoes correct shoe by ID
         const shoe = dataShoes.find(shoe => shoe.id === id);
@@ -21,8 +23,10 @@ const Shoe = React.forwardRef( ({id,modelName,price,availableSize,img}, ref) =>{
             item.disabled = true;
             addToCart(shoe);
         }
+        //add DOM button to btnRefs array
+        addRef(buttonRef.current);
     }
-
+    
     return(
         <div className="container-shoe">
             <div className="img-shoe">
@@ -39,10 +43,10 @@ const Shoe = React.forwardRef( ({id,modelName,price,availableSize,img}, ref) =>{
                 <p>Price: {price}$</p>
             </div>
             <div className="putIntoCart-shoe">
-                <button onClick={(e)=>putIntoCart(e,id)} ref={ref} data-id={id} >ADD TO CART</button>
+                <button onClick={(e)=>putIntoCart(e,id)} ref={buttonRef} id={id}>ADD TO CART</button>
             </div>
         </div>
     )
-})
+}
 
 export default Shoe;
