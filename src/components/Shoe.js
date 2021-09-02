@@ -2,6 +2,7 @@ import React from 'react'
 import {useGlobalContext} from '../context'
 
 const Shoe = ( {id,modelName,price,availableSize,img} ) =>{
+
     const {dataShoes,addToCart,cart, addRef} = useGlobalContext();
     //create ref to button
     let buttonRef = React.createRef();
@@ -43,7 +44,7 @@ const Shoe = ( {id,modelName,price,availableSize,img} ) =>{
                 <p>Price: {price}$</p>
             </div>
             <div className="putIntoCart-shoe">
-                <button onClick={(e)=>putIntoCart(e,id)} ref={buttonRef} id={id}>ADD TO CART</button>
+                <button onClick={(e)=>putIntoCart(e,id)} ref={buttonRef} id={id}>PUT IN CART</button>
             </div>
         </div>
     )

@@ -345,31 +345,51 @@ article.content-shoppingPage{
 .nav-shoppingPage{
   position: sticky;
   top: 0;
-  width: 100%;
   background-color: rgb(17, 17, 16);
   z-index: 2;
 }
 
 .header-shoppingPage{
+  display: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
   font-size: 3em;
-  margin: 0.5em 3em
+  margin: 0.3em 2.5em;
+
 }
 .welcome-shoppingPage{
   font-size: 2.5rem;
 }
 
-.icon-person-shoppingPage{
+.icon-profile-shoppingPage{
   color: orange;
   background-color: white;
   border-radius: 50%;
+  cursor: pointer;
  }
+
 .icon-cart-shoppingPage{
   color: rgb(228, 23, 23);
   background-color: transparent;
   cursor: pointer
+}
+.profile-shoppingPage{
+  position: absolute;
+  display: block;
+  color: black;
+  background-color: white;
+}
+.shoesInCart-shoppingPage{
+  position: absolute;
+  top: 12%;
+  right: 15%;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-radius: 1em;
+  color: black;
+  background-color: white;
+  padding: 0 0.3em;
 }
 /*----END OF SHOPPING PAGE COMPONENT-------------------*/
 

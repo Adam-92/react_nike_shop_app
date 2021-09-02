@@ -21,12 +21,33 @@ const CartItemContainer =  () => {
     //count total price of shoes in cart
     const countTotalPrice = () => {
         let total = 0;
-        cart.forEach(shoe => total += shoe.price);
+        cart.forEach(shoe =>{
+            const eachShoe = shoe.amount * shoe.price;
+            total+= eachShoe;
+        });
         setTotalPrice(total);
     }
-    useEffect( () => {
-    console.log('k')
+    const addAmount = (id) => {
+        const newCartArray = cart.filter(shoe=>{
+            if(shoe.id === id){
+                shoe.amount++;
+            }
+            return shoe;
+        })
+        newCart(newCartArray);
+    }
+    const subtractAmount = (id) =>{
+        const newCartArray = cart.filter(shoe => {
+            if(shoe.id === id){
+                return shoe.amount > 1 ? shoe.amount-- : null; 
+            }
+            return shoe;
+          }
+        )
+        newCart(newCartArray);
+    }
 
+    useEffect( () => {
         countTotalPrice();
     },[cart])
 
@@ -35,14 +56,18 @@ const CartItemContainer =  () => {
             {cart.map(shoe => {
                 const id = shoe.id;
                 return(
-                    <CartItem {...shoe} key={id} deleteShoeFromCart={deleteShoeFromCart}/>
+                    <CartItem {...shoe} 
+                              key={id} 
+                              deleteShoeFromCart={deleteShoeFromCart}
+                              addAmount={addAmount}
+                              subtractAmount={subtractAmount}/>
                 )
             })}
             <button className="button-cartItemContainer" onClick={clearCart}>
                 CLEAR CART
             </button>
             <div className="total-cartItemContainer">
-                <h1>TOTAL: {totalPrice}$</h1> 
+                <h1>TOTAL: {totalPrice} $</h1> 
             </div>
         </div>
     )
