@@ -5,7 +5,6 @@ import { useGlobalContext } from '../context'
 import CartItemContainer from './CartItemContainer'
 
 const Cart = () => {
-    const data = useGlobalContext();
     const {openCart,closeCartFunc} = useGlobalContext();
 
     return(

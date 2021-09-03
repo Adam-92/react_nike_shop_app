@@ -64,6 +64,7 @@ const UseForm = (validate) => {
     useEffect( () => {
         if(Object.values(error).length === 0 && isSubmitting){
             turnOnLoading();
+            //timeout for server downloading status effect
             setTimeout( () => {
                 saveLocalStorage(inputValue.username, inputValue.password);
                 submitedForm();

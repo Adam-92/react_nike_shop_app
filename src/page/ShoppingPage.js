@@ -13,15 +13,21 @@ const ShoppingPage = () => {
             <article className="content-shoppingPage">
                 <nav className="nav-shoppingPage">
                     <header className="header-shoppingPage">
-                        <div>
-                            <FontAwesomeIcon icon={faUserCircle} className="icon-shoppingPage icon-profile-shoppingPage" onClick={openProfile}/>
+                        {/*profile*/}
+                        <div className="icon-shoppingPage">
+                            <FontAwesomeIcon icon={faUserCircle} className="icon-profile-shoppingPage" onClick={openProfile}/>
                             <div className="profile-shoppingPage">
                                 <p>padls</p>
                             </div>
                         </div>
+                        {/*end of profile*/}
                         <p className="welcome-shoppingPage">Welcome in Our Shop Julia!</p>
-                        <FontAwesomeIcon icon={faCartArrowDown} className="icon-shoppingPage icon-cart-shoppingPage" onClick={openCartFunc}/>
-                        <p className="shoesInCart-shoppingPage">{cart.length}</p>
+                        {/*cart*/}
+                        <div className="cart-shoppingPage" onClick={openCartFunc}>
+                             <FontAwesomeIcon icon={faCartArrowDown} className="icon-cart-shoppingPage" />
+                             <p className="shoesInCart-shoppingPage">{cart.length}</p>
+                        </div>
+                        {/*end of cart*/}
                     </header>
                 </nav>
                 <ShoesContainer shoes={dataShoes} />

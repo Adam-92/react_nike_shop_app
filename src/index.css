@@ -356,23 +356,22 @@ article.content-shoppingPage{
   align-items: center;
   font-size: 3em;
   margin: 0.3em 2.5em;
-
 }
 .welcome-shoppingPage{
   font-size: 2.5rem;
 }
-
 .icon-profile-shoppingPage{
   color: orange;
   background-color: white;
   border-radius: 50%;
   cursor: pointer;
- }
-
+}
+.cart-shoppingPage{
+  cursor: pointer;
+}
 .icon-cart-shoppingPage{
   color: rgb(228, 23, 23);
   background-color: transparent;
-  cursor: pointer
 }
 .profile-shoppingPage{
   position: absolute;

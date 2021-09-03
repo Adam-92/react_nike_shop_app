@@ -3,19 +3,30 @@ import CartItem from './CartItem'
 import {useGlobalContext} from '../context'
 
 const CartItemContainer =  () => {
-    const {cart,clearCart,newCart,btnRefs} = useGlobalContext();
+    const {cart,newCart,btnRefs} = useGlobalContext();
+    //total price of shoes in cart
     const [totalPrice, setTotalPrice] = useState(0);
-
+    //change DOM STATUS to original PUT INTO CART
+    const changeCSS = (button) => {   
+        button.innerText = 'PUT IN CART';
+        button.style.cursor = 'pointer';
+        button.style.backgroundColor = 'orange';
+        button.style.color = 'white';
+        button.disabled = false;
+    }
+    //delet the shoe from the cart and change the css of this shoe in Shoe component
     const deleteShoeFromCart = (id) =>{
-        const btnShoeDOM = btnRefs.find(btn => parseInt(btn.id) === id );
-        //change DOM STATUS to original PUT INTO CART
-        btnShoeDOM.innerText = 'PUT IN CART';
-        btnShoeDOM.style.cursor = 'pointer';
-        btnShoeDOM.style.backgroundColor = 'orange';
-        btnShoeDOM.style.color = 'white';
-        btnShoeDOM.disabled = false;
+        //find the correct button
+        const button = btnRefs.find(btn => parseInt(btn.id) === id );
+        changeCSS(button);
         //delete from cart
-        const newCartArray = cart.filter(shoe => shoe.id !== id);
+        const newCartArray = cart.filter(shoe => {
+            if(shoe.id === id) {
+                shoe.amount = 1;
+                return null;
+            }
+            return shoe;
+        });
         newCart(newCartArray);
     }
     //count total price of shoes in cart
@@ -45,6 +56,14 @@ const CartItemContainer =  () => {
           }
         )
         newCart(newCartArray);
+    }
+    const clearCart = () => {
+        //change the status of button DOM from "IN CART" to "PUT IN CART" after cleared cart
+        btnRefs.forEach(button => changeCSS(button));
+        //change the amount to 1
+        const newArray = cart.reduce( shoe => {});
+        console.log(newArray);
+        newCart(newArray);
     }
 
     useEffect( () => {

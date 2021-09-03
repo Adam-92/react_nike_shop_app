@@ -3,10 +3,10 @@ import {useGlobalContext} from '../context'
 
 const Shoe = ( {id,modelName,price,availableSize,img} ) =>{
 
-    const {dataShoes,addToCart,cart, addRef} = useGlobalContext();
+    const {dataShoes,newCart,cart, addRef} = useGlobalContext();
     //create ref to button
     let buttonRef = React.createRef();
-    //function that put shoe into cart stored in context
+
     const putIntoCart = (e,id) =>{
         //find in dataShoes correct shoe by ID
         const shoe = dataShoes.find(shoe => shoe.id === id);
@@ -22,11 +22,12 @@ const Shoe = ( {id,modelName,price,availableSize,img} ) =>{
             item.style.backgroundColor = 'white';
             item.style.cursor = 'default';
             item.disabled = true;
-            addToCart(shoe);
+            newCart([...cart, shoe]);
         }
         //add DOM button to btnRefs array
         addRef(buttonRef.current);
     }
+
     
     return(
         <div className="container-shoe">
