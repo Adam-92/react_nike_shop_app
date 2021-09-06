@@ -23,15 +23,14 @@ const LoginComponent = () => {
                 <form autoComplete="on">
                         <div className='input-div'>
                             <input
-                                type='text' 
-                                placeholder='Username'
-                                name='username'
-                                value={inputValue.username}
-                                onChange={(e)=>onChangeValue(e)}
-                                ref={focusInput}
+                                type='email' 
+                                placeholder='email@gmail.com'
+                                name='email'
+                                value={inputValue.email}
+                                onChange={(e)=>onChangeValue(e)}  
                             />
-                            <FontAwesomeIcon icon={faUser} className="icon"></FontAwesomeIcon>
-                            {error.username ? <p style={{color: 'red'}}>{error.username}</p> : null}   
+                            <FontAwesomeIcon icon={faEnvelope} className="icon"></FontAwesomeIcon>
+                            {error.email ? <p style={{color: 'red'}}>{error.email}</p> : null}   
                         </div>
                         <div className='input-div'>
                             <input

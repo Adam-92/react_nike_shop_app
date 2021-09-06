@@ -1,9 +1,11 @@
 import React, {useState,useContext} from 'react';
+import  {auth} from './firebase'
 import databaseShoes from './databaseShoes';
 
 const AppContext = React.createContext();
 
 const AppProvider = ( {children} ) => {
+    const [currentUser, setCurrentUser] = useState();
     //if the validation is correct, switch to true (show success component)
     const [isSubmitted, setIsSubmitted] = useState(false);
     //turn on/off loading component if the validation is successed
@@ -20,6 +22,10 @@ const AppProvider = ( {children} ) => {
     const [cart, setCart] = useState([]);
     //btn refs - used to change the DOM status PUT IN CART/ IN CART
     const [btnRefs, setBtnRefs] = useState([]);
+
+    const signup = (email,password) =>{
+        auth.createUserWithEmailAndPassword();
+    }
 
     //change the state isSubmitted to true
     const submitedForm = () => {
@@ -57,7 +63,8 @@ const AppProvider = ( {children} ) => {
     
     return(
         <AppContext.Provider value={
-            {
+            { 
+              currentUser,
               isSubmitted,
               loading,
               tab,
