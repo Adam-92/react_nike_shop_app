@@ -7,7 +7,7 @@ import Cart from '../components/Cart'
 
 const ShoppingPage = () => {
    const {dataShoes,openCartFunc,cart,openProfile} = useGlobalContext();
-    
+   const [logOutBtn, setLogOutBtn] = React.useState(false);
     return(
         <main className="container-shoppingPage">
             <article className="content-shoppingPage">
@@ -15,10 +15,10 @@ const ShoppingPage = () => {
                     <header className="header-shoppingPage">
                         {/*profile*/}
                         <div className="icon-shoppingPage">
-                            <FontAwesomeIcon icon={faUserCircle} className="icon-profile-shoppingPage" onClick={openProfile}/>
-                            <div className="profile-shoppingPage">
-                                <p>padls</p>
-                            </div>
+                            <FontAwesomeIcon icon={faUserCircle} className="icon-profile-shoppingPage" onClick={()=>setLogOutBtn(!logOutBtn)}/>
+                            {logOutBtn && <div className="profile-shoppingPage">
+                                            <button>LOG OUT</button>
+                                          </div>} 
                         </div>
                         {/*end of profile*/}
                         <p className="welcome-shoppingPage">Welcome in Our Shop Julia!</p>

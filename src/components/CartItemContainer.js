@@ -38,6 +38,7 @@ const CartItemContainer =  () => {
         });
         setTotalPrice(total);
     }
+    //add amount of picked shoe in cart
     const addAmount = (id) => {
         const newCartArray = cart.filter(shoe=>{
             if(shoe.id === id){
@@ -47,21 +48,27 @@ const CartItemContainer =  () => {
         })
         newCart(newCartArray);
     }
+    //subtract amount of picked shoe in the cart
     const subtractAmount = (id) =>{
         const newCartArray = cart.filter(shoe => {
             if(shoe.id === id){
-                return shoe.amount > 1 ? shoe.amount-- : null; 
+                const button = btnRefs.find(btn => parseInt(btn.id) === id);
+                return shoe.amount > 1 ? shoe.amount-- : (changeCSS(button) && null); 
             }
             return shoe;
           }
         )
         newCart(newCartArray);
     }
+    //clear the cart
     const clearCart = () => {
         //change the status of button DOM from "IN CART" to "PUT IN CART" after cleared cart
         btnRefs.forEach(button => changeCSS(button));
         //change the amount to 1
-        const newArray = cart.reduce( shoe => {});
+        const newArray = cart.filter(shoe => {
+            shoe.amount = 1;
+            return null;
+        });
         console.log(newArray);
         newCart(newArray);
     }
