@@ -32,7 +32,7 @@ const Shoe = ( {id,modelName,price,availableSize,img} ) =>{
     return(
         <div className="container-shoe">
             <div className="img-shoe">
-                <img src={img}></img>
+                <img src={img} alt={modelName}></img>
             </div>
             <div>
                 <p className="name-shoe">

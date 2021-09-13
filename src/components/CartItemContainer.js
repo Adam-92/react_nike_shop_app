@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState,useEffect,useCallback} from 'react'
 import CartItem from './CartItem'
 import {useGlobalContext} from '../context'
 
@@ -30,14 +30,14 @@ const CartItemContainer =  () => {
         newCart(newCartArray);
     }
     //count total price of shoes in cart
-    const countTotalPrice = () => {
+    const countTotalPrice = useCallback(() => {
         let total = 0;
         cart.forEach(shoe =>{
             const eachShoe = shoe.amount * shoe.price;
             total+= eachShoe;
         });
         setTotalPrice(total);
-    }
+    },[cart])
     //add amount of picked shoe in cart
     const addAmount = (id) => {
         const newCartArray = cart.filter(shoe=>{
@@ -69,13 +69,12 @@ const CartItemContainer =  () => {
             shoe.amount = 1;
             return null;
         });
-        console.log(newArray);
         newCart(newArray);
     }
 
     useEffect( () => {
         countTotalPrice();
-    },[cart])
+    },[cart,countTotalPrice])
 
     return(
         <div className="container-cartItemContainer">

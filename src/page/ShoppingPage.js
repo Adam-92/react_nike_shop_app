@@ -6,7 +6,7 @@ import ShoesContainer from '../components/ShoesContainer'
 import Cart from '../components/Cart'
 
 const ShoppingPage = () => {
-   const {dataShoes,openCartFunc,cart,openProfile} = useGlobalContext();
+   const {dataShoes,openCartFunc,cart} = useGlobalContext();
    const [logOutBtn, setLogOutBtn] = React.useState(false);
     return(
         <main className="container-shoppingPage">

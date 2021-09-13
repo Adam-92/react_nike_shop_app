@@ -8,7 +8,8 @@ const CartItem = ( {id,img,modelName,price,amount,deleteShoeFromCart,addAmount,s
         <div className="container-cartItem">
             <div className="picture-cartItem">
                 <img 
-                     src={img}>
+                     src={img}
+                     alt={modelName}>
                 </img>
             </div>
             <div className="name-cartItem">

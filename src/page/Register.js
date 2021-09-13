@@ -3,25 +3,20 @@ import { useGlobalContext } from '../context'
 import RegisterComponent from '../components/RegisterComponent'
 import Layout from  '../components/Layout'
 import RegisterSuccess from '../components/RegisterSuccess'
-import LoadingApiResponse from '../components/LoadingApiResponse'
 
 const Register = () => {
-    const {isSubmitted, loading} = useGlobalContext();
+    const {isSubmitted} = useGlobalContext();
 
-    if(!isSubmitted && !loading ){
-        return(
-            <Layout>
-                <RegisterComponent />
-            </Layout>
-        )
-    }else if(!isSubmitted && loading){
-        return(
-            <LoadingApiResponse />
-        )
-    }else if(isSubmitted){
+    if(isSubmitted){
         return(
             <Layout>
                 <RegisterSuccess />
+            </Layout>
+        )
+    }else{
+        return(
+            <Layout>
+                <RegisterComponent />
             </Layout>
         )
     }

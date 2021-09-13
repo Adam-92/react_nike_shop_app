@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react'
-import { useGlobalContext } from '../context';
+import {useState} from 'react'
 
 const UseForm = (validate) => {
-    const {submitedForm,turnOnLoading} = useGlobalContext();
-    
+   
     const [error, setError] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);    
     const [inputValue, setInputValue] = useState({
@@ -16,6 +14,7 @@ const UseForm = (validate) => {
     
     const handleSubmit = (e) =>{
        e.preventDefault();
+       //return errors from validate(inputValues)
        setError(validate(inputValue));
        setIsSubmitting(true);
     }
@@ -43,38 +42,13 @@ const UseForm = (validate) => {
         })
         setError({});
         setIsSubmitting(false);
-    }
-
-    const getLocalStorage = () => {
-        return localStorage.getItem('Users') ? JSON.parse(localStorage.getItem('Users')) : [] ;
-    }
-
-    const saveLocalStorage = (username, password) => {
-        //Get database and check if it's empty
-        let database = getLocalStorage();
-        database.push({
-            User: username,
-            Pass: password
-        })
-        //Put back into localStorage updated database
-        localStorage.setItem('Users', JSON.stringify(database))
-    }
-
-
-    useEffect( () => {
-        if(Object.values(error).length === 0 && isSubmitting){
-            turnOnLoading();
-            //timeout for server downloading status effect
-            setTimeout( () => {
-                saveLocalStorage(inputValue.username, inputValue.password);
-                submitedForm();
-            }, 3000)
-        }
-    }, [isSubmitting])
+    } 
 
     return{
         error,
         inputValue,
+        isSubmitting,
+        setError,
         setInputValue, 
         handleSubmit, 
         onChangeValue, 

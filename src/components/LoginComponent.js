@@ -1,9 +1,8 @@
 import React,{useEffect,useRef} from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser,faLock,} from '@fortawesome/free-solid-svg-icons'
 import {UseForm} from './UseForm'
 import validate from '../validate'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope,faLock,} from '@fortawesome/free-solid-svg-icons'
 
 const LoginComponent = () => {
     const focusInput = useRef('');
@@ -14,7 +13,7 @@ const LoginComponent = () => {
     },[])
     
     return(
-        <div className="login-container">
+        <div className='login-container'>
             <header className="header">
                 <h1>Login </h1>
                 <div className="underline"></div>
@@ -26,6 +25,7 @@ const LoginComponent = () => {
                                 type='email' 
                                 placeholder='email@gmail.com'
                                 name='email'
+                                ref={focusInput}
                                 value={inputValue.email}
                                 onChange={(e)=>onChangeValue(e)}  
                             />

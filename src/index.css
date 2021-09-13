@@ -114,10 +114,17 @@ li{
 
 
 /*-------ANIMATION WHILE CHECKING THE BACKEND VALIDATION-----*/
-.flex{
+.container-loadingApiResponse{
+  display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(252, 247, 247);
+  min-height: 100%;
+  min-width: 100%;
+  background: linear-gradient(to left, #2C5364, #203A43, #0F2027);
 }
-.loader {
+.loader-loadingApiResponse {
   border: 25px solid #f3f3f3;
   border-radius: 50%;
   border-top: 25px solid #3498db;
@@ -125,7 +132,11 @@ li{
   height: 220px;
   -webkit-animation: spin 1.5s linear infinite; /* Safari */
   animation: spin 1.5s linear infinite;
-  margin: 3em;
+  margin-bottom: 4em;
+}
+.comunication-loadingApiResponse{
+  font-size: 2rem;
+  text-align: center;
 }
 
 /* Safari */
@@ -262,12 +273,12 @@ input:focus + .icon{
   z-index: 1;
 }
 
-
 /*----END OF LOGIN COMPONENT --------- */
 
 /*----REGISTER SUCCESS COMPONENT -----*/
 .success-container{
   position: relative;
+  margin: auto 0;
   width: 70%;
   max-width: 500px;
   min-width: 320px;
@@ -320,7 +331,7 @@ footer{
   text-align: center;
   font-size: 1.2rem;
   font-style: italic;
-  margin-top: 3.5em;
+  margin: 2em;
 }
 
 /*----END OF REGISTER SUCCESS COMPONENT -----*/
@@ -648,13 +659,14 @@ article.content-shoppingPage{
   .success-icon{
     left: 32%;
   }
-  .register-container{
-    min-width: 285px;
-    min-height: 500px;
-  }
+  .register-container,
   .success-container{
     min-width: 285px;
-    min-height: 500px;
+    min-height: 450px;
+  }
+  .login-container{
+    min-width: 285px;
+    min-height: 350px;
   }
   .container-shoesContainer{
     min-width: 90%;

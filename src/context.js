@@ -1,4 +1,4 @@
-import React, {useState,useContext} from 'react';
+import React, {useEffect,useState,useContext} from 'react';
 import  {auth} from './firebase'
 import databaseShoes from './databaseShoes';
 
@@ -8,12 +8,13 @@ const AppProvider = ( {children} ) => {
     const [currentUser, setCurrentUser] = useState();
     //if the validation is correct, switch to true (show success component)
     const [isSubmitted, setIsSubmitted] = useState(false);
-    //turn on/off loading component if the validation is successed
+    //turn on/off LoadingApiResponse component if the validation is successed
     const [loading, setLoading] = useState(false);
-    //switch tab login to register, if false then is set to register (www/login)
+    //set the tab component visibility as a DOM element
+    const [tabVisibility, setTabVisibility] = useState(true);
+    /*toggle beewten tabs -> login/register, register/login.
+    switch beeten RegisterComponent and LoginComponent*/
     const [tab, setTab] = useState(false);
-    //if true then in /user after clicking on profile icon show information
-    const [openProfile, setOpenProfile] = useState(true);
     //js file with the database shoes 
     const [dataShoes, setDataShoes] = useState(databaseShoes);
     //open/close cart component
@@ -23,27 +24,18 @@ const AppProvider = ( {children} ) => {
     //btn refs - used to change the DOM status PUT IN CART/ IN CART
     const [btnRefs, setBtnRefs] = useState([]);
 
-    const signup = (email,password) =>{
-        auth.createUserWithEmailAndPassword();
-    }
+    useEffect( () => {
+        const unsubscribe = auth.onAuthStateChanged(user=> { 
+            setCurrentUser(user);
+        })
+        return unsubscribe;
+    },[])
 
-    //change the state isSubmitted to true
-    const submitedForm = () => {
-        setIsSubmitted(true);
-    }
-    //change the state loading to true
-    const turnOnLoading = () =>{
-        setLoading(true);
-    }
-    //change the state loading to false
-    const turnOffLoading = () => {
-        setLoading(false);
-    }
-    /*toggle beewten tabs -> login/register, register/login.
-      switch beeten RegisterComponent and LoginComponent*/
-    const switchTab = () =>{
-        setTab(!tab);
-    }
+    //create new user with email using Firebase
+    const signup = (email,password) =>{
+        return auth.createUserWithEmailAndPassword(email,password)
+    } 
+      
     //Open the Cart component after clicking on Cart icon in right corner
     const openCartFunc = () => {
         setOpenCart(true)
@@ -72,11 +64,13 @@ const AppProvider = ( {children} ) => {
               dataShoes,
               cart,
               btnRefs,
+              tabVisibility,
+              signup,
               addRef,
-              turnOnLoading,
-              turnOffLoading,
-              submitedForm,
-              switchTab,
+              setTabVisibility,
+              setTab,
+              setLoading,
+              setIsSubmitted,
               openCartFunc,
               closeCartFunc,
               newCart
