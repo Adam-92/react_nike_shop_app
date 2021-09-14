@@ -13,9 +13,9 @@ const RegisterComponent = () => {
     const {inputValue,isSubmitting, error,setError,handleSubmit, onChangeValue, removeFields} = UseForm(validate);
     const {signup,setIsSubmitted,loading,setLoading,setTabVisibility} = useGlobalContext();
     //ref to foucs input after load web
-/*     useEffect( () => {
+    useEffect( () => {
         focusInput.current.focus();
-    },[]) */
+    },[])
     
     //if user pressed the submit and there are no errors carry out asynchronic function signup and make an account in firebase
     useEffect( () => {
@@ -48,14 +48,14 @@ const RegisterComponent = () => {
     }
 
     return(
-        <div className="register-container">
-            <header className="header">
+        <div className="container-RegisterComponent">
+            <header className="header-RegisterComponent ">
                 <h1>Join to our team!</h1>
-                <div className="underline"></div>
+                <div className="underline-RegisterComponent"></div>
             </header>
-            <div className="form-container">
+            <div className="form-RegisterComponent">
                 <form autoComplete="on">
-                        <div className='input-div'>
+                        <div className="input-RegisterComponent">
                             <input
                                 type='text' 
                                 placeholder='Username'
@@ -67,7 +67,7 @@ const RegisterComponent = () => {
                             <FontAwesomeIcon icon={faUser} className="icon"></FontAwesomeIcon>
                             {error.username ? <p style={{color: 'red'}}>{error.username}</p> : null}   
                         </div>
-                        <div className='input-div'>
+                        <div className='input-RegisterComponent'>
                             <input
                                 type='email' 
                                 placeholder='email@gmail.com'
@@ -78,7 +78,7 @@ const RegisterComponent = () => {
                             <FontAwesomeIcon icon={faEnvelope} className="icon"></FontAwesomeIcon>
                             {error.email ? <p style={{color: 'red'}}>{error.email}</p> : null}   
                         </div>
-                        <div className='input-div'>
+                        <div className='input-RegisterComponent'>
                             <input
                                 type='password' 
                                 placeholder='Password'
@@ -89,7 +89,7 @@ const RegisterComponent = () => {
                             <FontAwesomeIcon icon={faUnlockAlt} className="icon"></FontAwesomeIcon>
                             {error.password ? <p style={{color: 'red'}}>{error.password}</p> : null}                        
                         </div>     
-                        <div className='input-div'>
+                        <div className='input-RegisterComponent'>
                             <input
                                 type='password' 
                                 placeholder='Confirm Password'
@@ -102,12 +102,12 @@ const RegisterComponent = () => {
                         </div>
                         {/*firebase errors */}
                         {error.firebase}
-                    <div className="btn-container">
+                    <div className="btnContainer-RegisterComponent">
                         <div>
-                            <button className="btn" onClick={removeFields}>RESET</button>
+                            <button className="btn-RegisterComponent" onClick={removeFields}>RESET</button>
                         </div>
                         <div>
-                            <button className="btn" onClick={handleSubmit}>SUBMIT</button>
+                            <button className="btn-RegisterComponent" onClick={handleSubmit}>SUBMIT</button>
                         </div>
                     </div>
                 </form>

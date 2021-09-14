@@ -153,36 +153,35 @@ li{
 
 
 /*------REGISTER COMPONENT-----------*/
-.register-container{
+.container-RegisterComponent{
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 55%;
-  max-width: 600px;
-  min-width: 320px;
+  min-width: 53%;
   height: auto;
-  min-height: 550px;
-  max-height: 700px;
   background-color: rgb(235, 235, 241);
   border-radius: 3em;
   z-index: 1;
 }
 
-.header h1{
+.header-RegisterComponent h1,
+.header-LoginComponent h1{
   font-size: 2.3rem;  
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 1px;
   padding-top: 1.5em;
 }
 
-.underline{
+.underline-RegisterComponent,
+.underline-LoginComponent{
   width: 80%;
   height: 5px;
   background-color: dodgerblue;
   margin: 0em auto 1.5em auto;
 }
 
-.form-container{
+.form-RegisterComponent,
+.form-LoginComponent{
   width: 75%;
   height: 70%;
 }
@@ -194,7 +193,8 @@ form{
   align-items: center;
 }
 
-.input-div{
+.input-RegisterComponent,
+.input-LoginComponent{
   position: relative;
   margin-top: 1em;
   margin-bottom: 1em;
@@ -204,7 +204,7 @@ input {
   width: 100%;
   border: 2px solid grey;
   border-radius: 11px;  
-  padding: 13px 90px 13px 50px;
+  padding: 13px 50px 13px 50px;
   outline: none;
   transition: .4s;
 }
@@ -226,20 +226,22 @@ input:focus + .icon{
   transition: .4s;
 }
 
-.btn-container{
+.btnContainer-RegisterComponent,
+.btnContainer-LoginComponent{
   display: flex;
   width: 100%;
   justify-content:space-evenly;
   margin: 1.5em 1em;
 }
 
-.btn{
+.btn-RegisterComponent,
+.btn-LoginComponent{
   color: white;
   font-weight: 500;
   font-size: 1.3rem;
   letter-spacing: 1px;
   text-decoration: none;
-  padding: 0.5em 1em;
+  padding: 0.45em 0.8em;
   border: none;
   background-color: dodgerblue;
   cursor: pointer;
@@ -247,27 +249,20 @@ input:focus + .icon{
   box-shadow: 0px 0px 13px 0px #000000;
 }
 
-.btn:hover{
+.btn-RegisterComponent:hover,
+.btn-LoginComponent:hover{
   background-color: rgb(4, 59, 211); 
-}
-
-.error{
-  border: 1px solid red;
 }
 
 /*----END OF REGISTER COMPONENT-------*/
 
 /*----LOGIN COMPONENT ----------------*/
-.login-container{
+.container-LoginComponent{
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 55%;
-  max-width: 600px;
-  min-width: 320px;
+  min-width: 53%;
   height: auto;
-  min-height: 400px;
-  max-height: 700px;
   background-color: rgb(235, 235, 241);
   border-radius: 3em;
   z-index: 1;
@@ -645,7 +640,7 @@ article.content-shoppingPage{
   }
   .tabs-container{
     top: 9%;
-    margin-bottom: 12em;
+    margin-bottom: 8em;
   }
   .tab-btn{
     font-size: 2rem;
@@ -659,15 +654,15 @@ article.content-shoppingPage{
   .success-icon{
     left: 32%;
   }
-  .register-container,
-  .success-container{
-    min-width: 285px;
-    min-height: 450px;
+  .container-LoginComponent,
+  .container-RegisterComponent{
+   max-height: 80%;
   }
-  .login-container{
-    min-width: 285px;
-    min-height: 350px;
+  .btn-RegisterComponent,
+  .btn-LoginComponent{
+    padding: 0.4em 1em;
   }
+
   .container-shoesContainer{
     min-width: 90%;
     grid-template-columns: repeat(auto-fit, minmax(120px,1fr));

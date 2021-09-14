@@ -13,14 +13,14 @@ const LoginComponent = () => {
     },[])
     
     return(
-        <div className='login-container'>
-            <header className="header">
+        <div className='container-LoginComponent'>
+            <header className="header-LoginComponent">
                 <h1>Login </h1>
-                <div className="underline"></div>
+                <div className="underline-LoginComponent"></div>
             </header>
-            <div className="form-container">
+            <div className="form-LoginComponent">
                 <form autoComplete="on">
-                        <div className='input-div'>
+                        <div className='input-LoginComponent'>
                             <input
                                 type='email' 
                                 placeholder='email@gmail.com'
@@ -32,7 +32,7 @@ const LoginComponent = () => {
                             <FontAwesomeIcon icon={faEnvelope} className="icon"></FontAwesomeIcon>
                             {error.email ? <p style={{color: 'red'}}>{error.email}</p> : null}   
                         </div>
-                        <div className='input-div'>
+                        <div className='input-LoginComponent'>
                             <input
                                 type='password' 
                                 placeholder='Password'
@@ -43,12 +43,12 @@ const LoginComponent = () => {
                             <FontAwesomeIcon icon={faLock} className="icon"></FontAwesomeIcon>
                             {error.password ? <p style={{color: 'red'}}>{error.password}</p> : null}                        
                         </div>     
-                        <div className="btn-container">
+                        <div className="btnContainer-LoginComponent">
                             <div>
-                                <button className="btn" onClick={removeFields}>RESET</button>
+                                <button className="btn-LoginComponent" onClick={removeFields}>RESET</button>
                             </div>
                             <div>
-                                <button className="btn" onClick={handleSubmit}>SUBMIT</button>
+                                <button className="btn-LoginComponent" onClick={handleSubmit}>SUBMIT</button>
                             </div>
                         </div>
                 </form>
