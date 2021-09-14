@@ -183,7 +183,6 @@ li{
 .form-RegisterComponent,
 .form-LoginComponent{
   width: 75%;
-  height: 70%;
 }
 
 form{
@@ -629,18 +628,21 @@ article.content-shoppingPage{
     font-size: 12px;
   }
   article{
-    height: 100%;
+    height: auto;
+    min-height: 100%;
+    width: 100%;
+  }
+  section{
     width: 100%;
   }
   .main-section{
     background: url('https://i.pinimg.com/originals/53/83/fa/5383faafa5316d71036c2ece988293bb.jpg');
-    height: 100%;
     background-position: center;
     background-size: cover;
   }
   .tabs-container{
-    top: 9%;
-    margin-bottom: 8em;
+    top: 4%;
+    margin-bottom: 6em;
   }
   .tab-btn{
     font-size: 2rem;
@@ -648,15 +650,13 @@ article.content-shoppingPage{
   .img-section{
     display: none;
   }
-  section{
-    width: 100%;
-  }
+
   .success-icon{
     left: 32%;
   }
   .container-LoginComponent,
   .container-RegisterComponent{
-   max-height: 80%;
+   height: auto;
   }
   .btn-RegisterComponent,
   .btn-LoginComponent{
