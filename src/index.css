@@ -24,7 +24,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-/*---------LAYOUT----------*/
+/*--------------------LAYOUT-------------------*/
 main{
   display: flex;
   justify-content: center;
@@ -39,11 +39,11 @@ article{
   height: 90%; 
   box-shadow: 0px 0px 40px 2px #000000;
 }
-/*---NECESSARY TO USE TO HAVE SMOOTH TRANSITION BETWEEN PAGES---*/
+/*---NECESSARY TO USE POSITION ABSOLUTE TO HAVE SMOOTH TRANSITION BETWEEN CHANGING PAGES---*/
 .page{
   position: absolute;
 }
-/*-----SO THEY(COMPONENTS) CAN BE PUT ON EACH OTHER*/
+/*-----SO THE COMPONENTS CAN BE PUT ON EACH OTHER*/
 section{
   width: 50%;
 }
@@ -109,8 +109,7 @@ li{
   margin-bottom: 2em;
 }
 
-
-/*-------END OF LAYOUT COMPONENT --------*/
+/*---------------END OF LAYOUT COMPONENT ------------*/
 
 
 /*-------ANIMATION WHILE CHECKING THE BACKEND VALIDATION-----*/
@@ -237,7 +236,7 @@ input:focus + .icon{
 .btn-LoginComponent{
   color: white;
   font-weight: 500;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   letter-spacing: 1px;
   text-decoration: none;
   padding: 0.45em 0.8em;
@@ -642,7 +641,7 @@ article.content-shoppingPage{
   }
   .tabs-container{
     top: 4%;
-    margin-bottom: 10em;
+    margin-bottom: em;
   }
   .tab-btn{
     font-size: 2rem;

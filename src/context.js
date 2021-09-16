@@ -25,17 +25,22 @@ const AppProvider = ( {children} ) => {
     const [btnRefs, setBtnRefs] = useState([]);
 
     useEffect( () => {
-        const unsubscribe = auth.onAuthStateChanged(user=> { 
+        //asynchronic function to fetch current user
+        const unsubscribe = auth.onAuthStateChanged(user=> {
             setCurrentUser(user);
         })
         return unsubscribe;
     },[])
-
+    
     //create new user with email using Firebase
     const signup = (email,password) =>{
         return auth.createUserWithEmailAndPassword(email,password)
     } 
-      
+
+    const login = (email,password) => {
+        return auth.signInWithEmailAndPassword(email,password)
+    }
+
     //Open the Cart component after clicking on Cart icon in right corner
     const openCartFunc = () => {
         setOpenCart(true)
@@ -66,6 +71,7 @@ const AppProvider = ( {children} ) => {
               btnRefs,
               tabVisibility,
               signup,
+              login,
               addRef,
               setTabVisibility,
               setTab,
@@ -76,8 +82,8 @@ const AppProvider = ( {children} ) => {
               newCart
             }
         }>
-
-            {children}
+        {/*if firebase retured currentUuser then render children */}
+        {currentUser ? children : null}
         </AppContext.Provider>
     )
 }

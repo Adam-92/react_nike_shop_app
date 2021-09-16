@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
-
+//TO DO
+//REMEMBER TO PUT THIS INTO TO .ENV.LOCAL AND PROTECT -> YOUTUBE
 const firebaseConfig = firebase.initializeApp(
     {
 /*         apiKey: process.env.REACT_APP_FIREBASE_API_KEY,

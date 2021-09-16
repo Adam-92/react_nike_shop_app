@@ -11,7 +11,7 @@ import { faUser,faUnlockAlt,faEnvelope} from '@fortawesome/free-solid-svg-icons'
 const RegisterComponent = () => {
     const focusInput = useRef('');
     const {inputValue,isSubmitting, error,setError,handleSubmit, onChangeValue, removeFields} = UseForm(validate);
-    const {signup,setIsSubmitted,loading,setLoading,setTabVisibility} = useGlobalContext();
+    const {currentUser,signup,setIsSubmitted,loading,setLoading,setTabVisibility} = useGlobalContext();
     //ref to foucs input after load web
     useEffect( () => {
         focusInput.current.focus();
@@ -38,7 +38,7 @@ const RegisterComponent = () => {
                 setLoading(false)
                 setError({firebaseError : err.message})
             })
-        }
+        }//looop if error is included and if isSubmitting only then after one click is remianed true..........
     }, [isSubmitting,error])    
 
     if(loading){
@@ -49,7 +49,10 @@ const RegisterComponent = () => {
 
     return(
         <div className="container-RegisterComponent">
+            {currentUser ? currentUser.email : <p>no logged</p>}
             <header className="header-RegisterComponent ">
+            {/*firebaseError display if exist*/}
+                {error.firebaseError && <p>{error.firebaseError}</p>}
                 <h1>Join to our team!</h1>
                 <div className="underline-RegisterComponent"></div>
             </header>
@@ -70,7 +73,7 @@ const RegisterComponent = () => {
                         <div className='input-RegisterComponent'>
                             <input
                                 type='email' 
-                                placeholder='email@gmail.com'
+                                placeholder='mail@gmail.com'
                                 name='email'
                                 value={inputValue.email}
                                 onChange={(e)=>onChangeValue(e)}  

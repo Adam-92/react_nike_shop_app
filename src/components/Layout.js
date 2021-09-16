@@ -12,7 +12,6 @@ const Layout = ( {children} ) => {
           : tabRef.current.style.display = "none";
     },[tabVisibility])
 
-    console.log(tabVisibility);
     return(
         <main className="page">
           <article>
