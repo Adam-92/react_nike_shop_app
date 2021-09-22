@@ -1,6 +1,6 @@
 import React, {useEffect,useState,useContext} from 'react';
-import  {auth} from './firebase'
-import databaseShoes from './databaseShoes';
+import  {auth} from '../firebase'
+import databaseShoes from '../databaseShoes';
 
 const AppContext = React.createContext();
 
@@ -23,7 +23,7 @@ const AppProvider = ( {children} ) => {
     const [cart, setCart] = useState([]);
     //btn refs - used to change the DOM status PUT IN CART/ IN CART
     const [btnRefs, setBtnRefs] = useState([]);
-
+    
     useEffect( () => {
         //asynchronic function to fetch current user
         const unsubscribe = auth.onAuthStateChanged(user=> {
@@ -32,6 +32,8 @@ const AppProvider = ( {children} ) => {
         return unsubscribe;
     },[])
     
+    console.log('CurrentUser from Context: ', currentUser)
+    
     //create new user with email using Firebase
     const signup = (email,password) =>{
         return auth.createUserWithEmailAndPassword(email,password)
@@ -39,6 +41,10 @@ const AppProvider = ( {children} ) => {
 
     const login = (email,password) => {
         return auth.signInWithEmailAndPassword(email,password)
+    }
+    //logut using auth from firebase
+    const logout = () => {
+        return auth.signOut()
     }
 
     //Open the Cart component after clicking on Cart icon in right corner
@@ -72,6 +78,7 @@ const AppProvider = ( {children} ) => {
               tabVisibility,
               signup,
               login,
+              logout,
               addRef,
               setTabVisibility,
               setTab,
@@ -83,7 +90,8 @@ const AppProvider = ( {children} ) => {
             }
         }>
         {/*if firebase retured currentUuser then render children */}
-        {currentUser ? children : null}
+        {/*currentUser ? children : null*/}
+            {children}
         </AppContext.Provider>
     )
 }

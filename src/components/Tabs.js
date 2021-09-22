@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 const Tabs = ( {tab,switchTab}, ref ) => {
     return(
         <div className="tabs-container" ref={ref} >
+            {/*set tabs if toggle class exist*/}
             <div className={`tab-btn-color ${tab && 'toggle'}`}></div>
             <Link to="/register" className="tab-btn" onClick={() => switchTab(!tab)}>
                 Register

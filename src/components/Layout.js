@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGlobalContext } from '../context'
+import { useGlobalContext } from '../context/context'
 import Tabs from './Tabs'
 
 const Layout = ( {children} ) => {

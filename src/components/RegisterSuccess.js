@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {useGlobalContext} from '../context'
+import {useGlobalContext} from '../context/context'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt, faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 

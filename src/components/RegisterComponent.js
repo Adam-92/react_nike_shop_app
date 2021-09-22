@@ -1,5 +1,5 @@
 import React,{useEffect,useRef} from 'react'
-import {useGlobalContext} from '../context'
+import {useGlobalContext} from '../context/context'
 import {UseForm} from './UseForm'
 import validate from '../validate'
 //import loading component
@@ -10,8 +10,9 @@ import { faUser,faUnlockAlt,faEnvelope} from '@fortawesome/free-solid-svg-icons'
 
 const RegisterComponent = () => {
     const focusInput = useRef('');
-    const {inputValue,isSubmitting, error,setError,handleSubmit, onChangeValue, removeFields} = UseForm(validate);
+    const {inputValue,isSubmitting,error,setIsSubmitting,setError,handleSubmit, onChangeValue, removeFields} = UseForm(validate);
     const {currentUser,signup,setIsSubmitted,loading,setLoading,setTabVisibility} = useGlobalContext();
+    
     //ref to foucs input after load web
     useEffect( () => {
         focusInput.current.focus();
@@ -37,8 +38,10 @@ const RegisterComponent = () => {
             .catch( err => {
                 setLoading(false)
                 setError({firebaseError : err.message})
+                setTabVisibility(true);
+                setIsSubmitting(false);
             })
-        }//looop if error is included and if isSubmitting only then after one click is remianed true..........
+        }
     }, [isSubmitting,error])    
 
     if(loading){
@@ -46,13 +49,11 @@ const RegisterComponent = () => {
             <LoadingApiResponse />
         )
     }
-
+    console.log('currentUser from Register: ', currentUser)
     return(
         <div className="container-RegisterComponent">
-            {currentUser ? currentUser.email : <p>no logged</p>}
+            {currentUser ? currentUser.email : <p>not logged</p>}
             <header className="header-RegisterComponent ">
-            {/*firebaseError display if exist*/}
-                {error.firebaseError && <p>{error.firebaseError}</p>}
                 <h1>Join to our team!</h1>
                 <div className="underline-RegisterComponent"></div>
             </header>
@@ -103,16 +104,19 @@ const RegisterComponent = () => {
                             <FontAwesomeIcon icon={faUnlockAlt} className="icon"></FontAwesomeIcon>
                             {error.confirm_password ? <p style={{color: 'red'}}>{error.confirm_password}</p> : null}                        
                         </div>
-                        {/*firebase errors */}
-                        {error.firebase}
-                    <div className="btnContainer-RegisterComponent">
-                        <div>
-                            <button className="btn-RegisterComponent" onClick={removeFields}>RESET</button>
+                        <div className="btnContainer-RegisterComponent">
+                            <div>
+                                <button className="btn-RegisterComponent" onClick={removeFields}>RESET</button>
+                            </div>
+                            <div>
+                                <button className="btn-RegisterComponent" onClick={handleSubmit}>SUBMIT</button>
+                            </div>
                         </div>
-                        <div>
-                            <button className="btn-RegisterComponent" onClick={handleSubmit}>SUBMIT</button>
-                        </div>
-                    </div>
+                        {/*show firebase error if exist*/}
+                        {error.firebaseError && 
+                            <div style={{margin: '1em',color: 'red'}}>
+                                <span>{error.firebaseError}</span>        
+                            </div>}
                 </form>
             </div>
         </div>        

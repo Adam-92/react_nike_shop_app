@@ -1,5 +1,5 @@
 import React from 'react'
-import {useGlobalContext} from '../context'
+import {useGlobalContext} from '../context/context'
 
 const Shoe = ( {id,modelName,price,availableSize,img} ) =>{
 

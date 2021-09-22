@@ -1,6 +1,6 @@
 import React, {useState,useEffect,useCallback} from 'react'
 import CartItem from './CartItem'
-import {useGlobalContext} from '../context'
+import {useGlobalContext} from '../context/context'
 
 const CartItemContainer =  () => {
     const {cart,newCart,btnRefs} = useGlobalContext();

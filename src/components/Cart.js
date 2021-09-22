@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
-import { useGlobalContext } from '../context'
+import { useGlobalContext } from '../context/context'
 import CartItemContainer from './CartItemContainer'
 
 const Cart = () => {

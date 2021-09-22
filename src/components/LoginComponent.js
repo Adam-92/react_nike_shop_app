@@ -1,5 +1,6 @@
 import React,{useEffect,useRef} from 'react'
-import {useGlobalContext} from '../context'
+import {useHistory} from 'react-router-dom'
+import {useGlobalContext} from '../context/context'
 import {UseForm} from './UseForm'
 import validate from '../validate'
 //import loading component
@@ -10,16 +11,31 @@ import { faEnvelope,faLock,} from '@fortawesome/free-solid-svg-icons'
 
 const LoginComponent = () => {
     const focusInput = useRef('');
-    const {inputValue,isSubmitting,error,setError,handleSubmit, onChangeValue, removeFields} = UseForm(validate);
+    const {inputValue,isSubmitting,error,setIsSubmitting,setError,handleSubmit, onChangeValue, removeFields} = UseForm(validate);
     const {login,setIsSubmitted,loading,setLoading,setTabVisibility} = useGlobalContext();
-
-    useEffect( () => {
-        focusInput.current.focus();
-    },[])
+    //create history to switch the route after succesfull login
+    const history = useHistory();
+    console.log(history)
     
+    //ref to foucs input after load web 
+/*     useEffect( () => {
+        focusInput.current.focus();
+    },[]) */
+
+    /*Because in Login panel we have only email and password fields we have to delete 
+      from const error properties username and confirm_password, so our validation check only username and email*/
+    const errorLogin = (object) => {
+        if(object.username || object.confirm_password){
+            const {username,confirm_password, ...rest} = object;
+            object = rest;
+        }
+        //return lenght of values from email and password key, if 0 then we know that there are no errors
+        return Object.values(object).length === 0 ? true : false;
+    }
+
     //if user pressed the submit and there are no errors carry out asynchronic function signup and make an account in firebase
     useEffect( () => {
-        if((Object.values(error).length) === 0 && isSubmitting){
+        if( errorLogin(error) && isSubmitting){
             //turn on loading component
             setLoading(true)
             //turn off tab visibility
@@ -27,31 +43,31 @@ const LoginComponent = () => {
             //create firebase acc
             login(inputValue.email, inputValue.password)
             .then( response => {
-                console.log(response)
                 if(response.user){
                     setLoading(false);
-                    setIsSubmitted(true);
+                    history.push('/shoppingPage/user');
                 }
             })
-            //if there is problem with the createing firebase acc then display message 
+            //if there is problem with the creating firebase acc then display message 
             .catch( err => {
+                setTabVisibility(true);
                 setLoading(false)
                 setError({firebaseError : err.message})
+                setIsSubmitting(false);
             })
         }
     }, [isSubmitting,error])    
 
+    //if loading true then show loading screen
     if(loading){
         return(
             <LoadingApiResponse />
         )
     }
-    console.log(error)
+
     return(
         <div className='container-LoginComponent'>
             <header className="header-LoginComponent">
-            {/*firebaseError display if exist*/}
-                {error.firebaseError && <p>{error.firebaseError}</p>}
                 <h1>Login </h1>
                 <div className="underline-LoginComponent"></div>
             </header>
@@ -87,6 +103,10 @@ const LoginComponent = () => {
                             <div>
                                 <button className="btn-LoginComponent" onClick={handleSubmit}>SUBMIT</button>
                             </div>
+                        </div>
+                        {/*firebaseError display if exist*/}
+                        <div style={{margin: '1em',color: 'red'}}>
+                            {error.firebaseError && <span>{error.firebaseError}</span>}
                         </div>
                 </form>
             </div>
