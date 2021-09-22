@@ -18,9 +18,9 @@ const LoginComponent = () => {
     console.log(history)
     
     //ref to foucs input after load web 
-/*     useEffect( () => {
+    useEffect( () => {
         focusInput.current.focus();
-    },[]) */
+    },[])
 
     /*Because in Login panel we have only email and password fields we have to delete 
       from const error properties username and confirm_password, so our validation check only username and email*/
@@ -39,13 +39,14 @@ const LoginComponent = () => {
             //turn on loading component
             setLoading(true)
             //turn off tab visibility
-            setTabVisibility(false);
+            setTabVisibility(false)
             //create firebase acc
             login(inputValue.email, inputValue.password)
             .then( response => {
                 if(response.user){
-                    setLoading(false);
-                    history.push('/shoppingPage/user');
+                    setLoading(false)
+                    setTabVisibility(true)
+                    history.push('/shoppingPage/user')
                 }
             })
             //if there is problem with the creating firebase acc then display message 
