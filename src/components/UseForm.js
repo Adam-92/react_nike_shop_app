@@ -34,18 +34,6 @@ const UseForm = (validate) => {
          });
     }
 
-    const removeFields = (e) => {
-        e.preventDefault();
-        setInputValue({
-            username: '',
-            email: '',
-            password: '',
-            confirm_password: '',
-        })
-        setError({});
-        setIsSubmitting(false);
-    } 
-
     return{
         error,
         inputValue,
@@ -55,7 +43,6 @@ const UseForm = (validate) => {
         setInputValue, 
         handleSubmit, 
         onChangeValue, 
-        removeFields
     }
 }
 

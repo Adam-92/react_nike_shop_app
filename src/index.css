@@ -62,6 +62,10 @@ section{
   background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+/* center components without tabs*/
+.center{
+  justify-content: center;
+}
 
 .tabs-container{
   position: relative;
@@ -202,7 +206,7 @@ input {
   width: 100%;
   border: 2px solid grey;
   border-radius: 11px;  
-  padding: 13px 50px 13px 50px;
+  padding: 13px 40px 13px 50px;
   outline: none;
   transition: .4s;
 }
@@ -239,7 +243,9 @@ input:focus + .icon{
   font-size: 1.2rem;
   letter-spacing: 1px;
   text-decoration: none;
-  padding: 0.45em 0.8em;
+  padding: 0.45em;
+  width: 100%;
+  border-radius: 0.5em;
   border: none;
   background-color: dodgerblue;
   cursor: pointer;
@@ -269,62 +275,45 @@ input:focus + .icon{
 /*----END OF LOGIN COMPONENT --------- */
 
 /*----REGISTER SUCCESS COMPONENT -----*/
-.success-container{
-  position: relative;
-  margin: auto 0;
-  width: 70%;
-  max-width: 500px;
-  min-width: 320px;
-  height: auto;
-  min-height: 550px;
-  max-height: 700px;
+.container-RegisterSuccess{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 75%;
+  width: 75%;
   background-color: rgb(235, 235, 241);
   border-radius: 3em;
+  box-shadow: 0 0 15px 5px white;
 }
 
-.header-success{
-  text-align: center;
-  background: cornflowerblue;
-  color: white;
-  font-weight: bold;
-  border-radius: 1em 1em 0 0;
-  font-size: 3rem;
-  padding: 1em 0;
+.iconContainer-RegisterSuccess{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(58, 161, 245);
+  height: 50%;
+  width: 50%;
+  border-radius: 50%;
+  box-shadow: 0 0 15px 5px black;
 }
 
-
-.success-icon{
-  position: absolute;
-  left: 36%;
-  top: 20%;
-  font-size: 10em;
-  color: rgb(10, 160, 55);
+.iconSuccess-RegisterSuccess{
+  font-size: 10rem;
+  color: #f0f8f0;
 }
-
-.text-div{
+.btnContainer-RegisterSuccess{
+  margin-top: 1em;
+}
+.btnContainer-RegisterSuccess button{
+  border: none;
   font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 6em;
-}
-
-.btn-login{
-  font-size: 5em;
-}
-.log-div{
-  font-size: 1.4rem;
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  margin-top: 1.5em;
-  color: green;
-}
-
-footer{
-  text-align: center;
-  font-size: 1.2rem;
-  font-style: italic;
-  margin: 2em;
+  font-weight: 700;
+  padding: 0.5em 3em;
+  color: white;
+  background-color: rgb(118, 219, 250);
+  border-radius: 0.5em;
+  cursor: pointer;
 }
 
 /*----END OF REGISTER SUCCESS COMPONENT -----*/
@@ -358,6 +347,9 @@ article.content-shoppingPage{
   font-size: 3em;
   margin: 0.3em 2.5em;
 }
+.icon-shoppingPage{
+  position: relative;
+}
 .welcome-shoppingPage{
   font-size: 2.5rem;
   text-align: center;
@@ -369,6 +361,7 @@ article.content-shoppingPage{
   cursor: pointer;
 }
 .cart-shoppingPage{
+  position: relative;
   cursor: pointer;
 }
 .icon-cart-shoppingPage{
@@ -377,8 +370,10 @@ article.content-shoppingPage{
 }
 .profile-shoppingPage{
   position: absolute;
-  top: 55%;
-  left: 11%;
+  white-space:nowrap;
+  top: 60%;
+  transform: translateX(-50%);
+  left: 50%;
 }
 .profile-shoppingPage button{
   font-size: 1rem;
@@ -390,8 +385,8 @@ article.content-shoppingPage{
 }
 .shoesInCart-shoppingPage{
   position: absolute;
-  top: 12%;
-  right: 15%;
+  top: -5%;
+  right: 65%;
   font-size: 1.4rem;
   font-weight: 700;
   border-radius: 1em;
@@ -641,22 +636,23 @@ article.content-shoppingPage{
   }
   .tabs-container{
     top: 4%;
-    margin-bottom: em;
+    margin-bottom: 3em;
   }
   .tab-btn{
-    font-size: 2rem;
+    font-size: 1.2rem;
   }
   .img-section{
     display: none;
   }
 
-  .success-icon{
-    left: 32%;
-  }
   .container-LoginComponent,
   .container-RegisterComponent{
    height: auto;
   }
+  .container-RegisterSuccess{
+    max-height: 310px;
+  }
+  
   .btn-RegisterComponent,
   .btn-LoginComponent{
     padding: 0.4em 1em;
@@ -670,19 +666,12 @@ article.content-shoppingPage{
     font-size: 2.5rem;
     margin: .5em 1em;
   }
-  .profile-shoppingPage{
-    left: 1%;
-  }
   .profile-shoppingPage button{
     padding: .4em 1.2em;
   }
   .welcome-shoppingPage{
     font-size: 1.8rem;
     margin: 0 .9em;
-  }
-  .shoesInCart-shoppingPage{
-    top:25%;
-    right: 14%;
   }
   .putIntoCart-shoe button{
     font-size: 1rem;

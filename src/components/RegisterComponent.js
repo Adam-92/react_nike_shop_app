@@ -10,7 +10,7 @@ import { faUser,faUnlockAlt,faEnvelope} from '@fortawesome/free-solid-svg-icons'
 
 const RegisterComponent = () => {
     const focusInput = useRef('');
-    const {inputValue,isSubmitting,error,setIsSubmitting,setError,handleSubmit, onChangeValue, removeFields} = UseForm(validate);
+    const {inputValue,isSubmitting,error,setIsSubmitting,setError,handleSubmit, onChangeValue} = UseForm(validate);
     const {currentUser,signup,setIsSubmitted,loading,setLoading,setTabVisibility} = useGlobalContext();
     
     //ref to foucs input after load web
@@ -74,7 +74,7 @@ const RegisterComponent = () => {
                         <div className='input-RegisterComponent'>
                             <input
                                 type='email' 
-                                placeholder='mail@gmail.com'
+                                placeholder='email@gmail.com'
                                 name='email'
                                 value={inputValue.email}
                                 onChange={(e)=>onChangeValue(e)}  
@@ -105,12 +105,7 @@ const RegisterComponent = () => {
                             {error.confirm_password ? <p style={{color: 'red'}}>{error.confirm_password}</p> : null}                        
                         </div>
                         <div className="btnContainer-RegisterComponent">
-                            <div>
-                                <button className="btn-RegisterComponent" onClick={removeFields}>RESET</button>
-                            </div>
-                            <div>
-                                <button className="btn-RegisterComponent" onClick={handleSubmit}>SUBMIT</button>
-                            </div>
+                            <button className="btn-RegisterComponent" onClick={handleSubmit}>SUBMIT</button>
                         </div>
                         {/*show firebase error if exist*/}
                         {error.firebaseError && 

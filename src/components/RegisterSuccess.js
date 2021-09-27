@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {useGlobalContext} from '../context/context'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignInAlt, faCheckCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCheck} from '@fortawesome/free-solid-svg-icons'
 
 const RegisterSuccess = () => {
     
@@ -17,29 +17,19 @@ const RegisterSuccess = () => {
     }
 
     return(
-        <div className='success-container'>
-            <header className="header-success">
-                WELL DONE!
+        <div className='container-RegisterSuccess'>
+            <header>
+                <h1>Thank you for the registration</h1>
             </header>
-            <FontAwesomeIcon 
-                icon={faCheckCircle} 
-                className="success-icon"
-            />
-            <div className="text-div">
-                EVERYTHING IS CORRECT ENJOY YOUR NEW ACCOUNT
+            <div className="iconContainer-RegisterSuccess">
+                <FontAwesomeIcon 
+                    icon={faCheck}
+                    className="iconSuccess-RegisterSuccess"
+                />
             </div>
-            <div className="log-div">
-                <Link to="/login" onClick={changeTabPosition}>
-                    <FontAwesomeIcon 
-                        icon={faSignInAlt}
-                        className="btn-login"
-                    />
-                    <p>LOG IN</p>
-                </Link>
-            </div>
-            <footer>
-                Regards Nike Team!
-            </footer>        
+            <Link to="/login" className="btnContainer-RegisterSuccess" onClick={changeTabPosition}>
+                   <button>GO TO LOGIN</button>
+            </Link> 
         </div>
     )
 }

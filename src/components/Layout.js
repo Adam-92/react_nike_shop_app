@@ -18,7 +18,7 @@ const Layout = ( {children} ) => {
             <section className="img-section">
                 {/*left section -> photo nike*/}
             </section>
-            <section className="main-section">
+            <section className={`main-section ${!tabVisibility && 'center'}`}>
                 {/*if form is filled up correctly and submitted then tab disappears */}
                 <Tabs  tab={tab} switchTab={setTab} ref={tabRef}/>
                 {/*render register RegisterComponent/LoginComponent or RegisterSuccess*/}

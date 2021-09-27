@@ -11,8 +11,8 @@ import { faEnvelope,faLock,} from '@fortawesome/free-solid-svg-icons'
 
 const LoginComponent = () => {
     const focusInput = useRef('');
-    const {inputValue,isSubmitting,error,setIsSubmitting,setError,handleSubmit, onChangeValue, removeFields} = UseForm(validate);
-    const {login,setIsSubmitted,loading,setLoading,setTabVisibility} = useGlobalContext();
+    const {inputValue,isSubmitting,error,setIsSubmitting,setError,handleSubmit, onChangeValue} = UseForm(validate);
+    const {login,loading,setLoading,setTabVisibility} = useGlobalContext();
     //create history to switch the route after succesfull login
     const history = useHistory();
     console.log(history)
@@ -77,7 +77,7 @@ const LoginComponent = () => {
                         <div className='input-LoginComponent'>
                             <input
                                 type='email' 
-                                placeholder='mail@gmail.com'
+                                placeholder='email@gmail.com'
                                 name='email'
                                 ref={focusInput}
                                 value={inputValue.email}
@@ -98,12 +98,7 @@ const LoginComponent = () => {
                             {error.password ? <p style={{color: 'red'}}>{error.password}</p> : null}                        
                         </div>     
                         <div className="btnContainer-LoginComponent">
-                            <div>
-                                <button className="btn-LoginComponent" onClick={removeFields}>RESET</button>
-                            </div>
-                            <div>
-                                <button className="btn-LoginComponent" onClick={handleSubmit}>SUBMIT</button>
-                            </div>
+                            <button className="btn-LoginComponent" onClick={handleSubmit}>SUBMIT</button>
                         </div>
                         {/*firebaseError display if exist*/}
                         <div style={{margin: '1em',color: 'red'}}>
