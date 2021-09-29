@@ -1,16 +1,17 @@
 import React from  'react'
 import {Link} from 'react-router-dom'
-
+//onClick={() => switchTab(!tab)
+//onClick={() => switchTab(!tab)}
 //tabs component for switching between pages REGISTER and LOGIN
-const Tabs = ( {tab,switchTab}, ref ) => {
+const Tabs = ( { tab }, ref ) => {
     return(
-        <div className="tabs-container" ref={ref} >
-            {/*set tabs if toggle class exist*/}
-            <div className={`tab-btn-color ${tab && 'toggle'}`}></div>
-            <Link to="/register" className="tab-btn" onClick={() => switchTab(!tab)}>
+        <div className="container-Tabs" ref={ref} >
+            {/*add class toggle to change the position of the lighted up tab*/}
+            <div className={`btn-color-Tabs ${tab && 'toggle-Tabs'}`}></div>
+            <Link to="/register" className="btn-Tabs">
                 Register
             </Link>
-            <Link to="/login" className="tab-btn" onClick={() => switchTab(!tab)}>
+            <Link to="/login" className="btn-Tabs">
                 Login
             </Link>
         </div>

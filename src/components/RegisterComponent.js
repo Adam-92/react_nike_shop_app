@@ -28,7 +28,6 @@ const RegisterComponent = () => {
             //create firebase acc
             signup(inputValue.email, inputValue.password)
             .then( response => {
-                console.log(response)
                 if(response.user){
                     setLoading(false);
                     setIsSubmitted(true);
@@ -49,7 +48,7 @@ const RegisterComponent = () => {
             <LoadingApiResponse />
         )
     }
-    console.log('currentUser from Register: ', currentUser)
+
     return(
         <div className="container-RegisterComponent">
             {currentUser ? currentUser.email : <p>not logged</p>}

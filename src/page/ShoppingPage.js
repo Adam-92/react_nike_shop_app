@@ -13,7 +13,7 @@ const ShoppingPage = () => {
    const history = useHistory()
    
    //error for gathering info about failed handleLogut
-   const [error, setError] = React.useState({});
+   const [error, setError] = React.useState('');
 
    //logut function and redirect to login
    const handleLogut = async () => {
@@ -25,7 +25,6 @@ const ShoppingPage = () => {
         }
    }
 
-   console.log(currentUser)
     return(
         <main className="container-shoppingPage">
             <article className="content-shoppingPage">

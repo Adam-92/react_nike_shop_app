@@ -39,11 +39,7 @@ article{
   height: 90%; 
   box-shadow: 0px 0px 40px 2px #000000;
 }
-/*---NECESSARY TO USE POSITION ABSOLUTE TO HAVE SMOOTH TRANSITION BETWEEN CHANGING PAGES---*/
-.page{
-  position: absolute;
-}
-/*-----SO THE COMPONENTS CAN BE PUT ON EACH OTHER*/
+
 section{
   width: 50%;
 }
@@ -67,7 +63,16 @@ section{
   justify-content: center;
 }
 
-.tabs-container{
+/*---------------END OF LAYOUT COMPONENT ------------*/
+
+/*---NECESSARY TO USE POSITION ABSOLUTE TO HAVE SMOOTH TRANSITION BETWEEN CHANGING PAGES---*/
+.page{
+  position: absolute;
+}
+/*-----SO THE COMPONENTS CAN BE PUT ON EACH OTHER*/
+
+/*---------------TABS COMPONENT----------------------*/
+.container-Tabs{
   position: relative;
   margin-bottom: 6em;
   top: 4%;
@@ -80,7 +85,7 @@ section{
   border-radius: 2em;
 }
 
-.tab-btn-color{
+.btn-color-Tabs{
 position: absolute;
 top:0;
 left: 0;
@@ -92,12 +97,12 @@ opacity: 0.75;
 transition: all ease 1s;
 }
 
-.toggle{
+.toggle-Tabs{
   left: 50%;
   background-color: linear-gradient(to left,#ff105f, #ffad06);
 }
 
-.tab-btn{
+.btn-Tabs{
   text-align: center;
   cursor: pointer;
   width: 50%;
@@ -109,14 +114,10 @@ transition: all ease 1s;
   text-decoration: none;
 }
 
-li{
-  margin-bottom: 2em;
-}
-
-/*---------------END OF LAYOUT COMPONENT ------------*/
+/*-------------END OF TABS COMPONENT---------------------*/
 
 
-/*-------ANIMATION WHILE CHECKING THE BACKEND VALIDATION-----*/
+/*-------ANIMATION WHILE CHECKING THE FIREBASE VALIDATION-----*/
 .container-loadingApiResponse{
   display: flex;
   flex-direction: column;
@@ -152,7 +153,7 @@ li{
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-/*-------END OF ANIMATION WHILE CHECKING THE BACKEND VALIDATION-----*/
+/*-------END OF ANIMATION WHILE CHECKING THE FIREBASE VALIDATION-----*/
 
 
 /*------REGISTER COMPONENT-----------*/
@@ -636,7 +637,7 @@ article.content-shoppingPage{
   }
   .tabs-container{
     top: 4%;
-    margin-bottom: 3em;
+    margin-bottom: 4em;
   }
   .tab-btn{
     font-size: 1.2rem;
@@ -650,7 +651,9 @@ article.content-shoppingPage{
    height: auto;
   }
   .container-RegisterSuccess{
-    max-height: 310px;
+    max-height: 380px;
+    width: 85%;
+    padding: 2em 0;
   }
   
   .btn-RegisterComponent,

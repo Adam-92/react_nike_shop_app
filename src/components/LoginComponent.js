@@ -10,14 +10,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope,faLock,} from '@fortawesome/free-solid-svg-icons'
 
 const LoginComponent = () => {
+    //ref to foucs input after load web 
     const focusInput = useRef('');
+    //import from UseForm
     const {inputValue,isSubmitting,error,setIsSubmitting,setError,handleSubmit, onChangeValue} = UseForm(validate);
+    //import from Context
     const {login,loading,setLoading,setTabVisibility} = useGlobalContext();
     //create history to switch the route after succesfull login
     const history = useHistory();
-    console.log(history)
     
-    //ref to foucs input after load web 
+    
     useEffect( () => {
         focusInput.current.focus();
     },[])
@@ -40,7 +42,7 @@ const LoginComponent = () => {
             setLoading(true)
             //turn off tab visibility
             setTabVisibility(false)
-            //create firebase acc
+            //login
             login(inputValue.email, inputValue.password)
             .then( response => {
                 if(response.user){

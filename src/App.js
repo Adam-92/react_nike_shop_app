@@ -2,7 +2,7 @@ import './index.css'
 //CSS transition between components
 import {CSSTransition, TransitionGroup} from 'react-transition-group'
 //To move between components
-import {Switch, Route, useLocation} from 'react-router-dom'
+import {Switch, Route, useLocation, Redirect} from 'react-router-dom'
 //Register page component
 import Register from './page/Register'
 //Error if you get somewhere where address doesn't exist, f.ex 'host/somewhere'
@@ -16,6 +16,7 @@ import PrivateRoute from './components/PrivateRoute'
 
 function App () {
   const location = useLocation();
+
   return (
         <TransitionGroup>
           <CSSTransition 
@@ -24,21 +25,13 @@ function App () {
             key={location.key}
           >
             <Switch location={location}>
-              <Route path="/" exact>
-                <Register />
-              </Route>
-              <Route path="/register" exact>
-                <Register />
-              </Route>
-              <Route path="/login" exact>
-                <Login />
-              </Route>
+              <Redirect from="/" to="/register" exact/>
+              <Route path="/register" component={Register} exact />
+              <Route path="/login" component={Login} exact />
               {/*Private route*/}
              {<PrivateRoute path="/shoppingPage/user" component={ShoppingPage} exact />}
               {/* <Route path='/ShoppingPage/user' component={ShoppingPage} exact /> */}
-              <Route path="*">
-                <Error />
-              </Route>
+              <Route path="*" component={Error} />
             </Switch>
           </CSSTransition>
         </TransitionGroup>

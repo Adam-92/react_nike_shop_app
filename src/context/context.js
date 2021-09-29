@@ -1,5 +1,5 @@
 import React, {useEffect,useState,useContext} from 'react';
-import  {auth} from '../firebase'
+import {auth} from '../firebase'
 import databaseShoes from '../databaseShoes';
 
 const AppContext = React.createContext();
@@ -14,7 +14,7 @@ const AppProvider = ( {children} ) => {
     const [tabVisibility, setTabVisibility] = useState(true);
     /*toggle beewten tabs -> login/register, register/login.
     switch beeten RegisterComponent and LoginComponent*/
-    const [tab, setTab] = useState(false);
+    const [tab, setTab] = useState(false);    
     //js file with the database shoes 
     const [dataShoes, setDataShoes] = useState(databaseShoes);
     //open/close cart component
@@ -31,22 +31,19 @@ const AppProvider = ( {children} ) => {
         })
         return unsubscribe;
     },[])
-    
-    console.log('CurrentUser from Context: ', currentUser)
-    
+  
     //create new user with email using Firebase
-    const signup = (email,password) =>{
+    const signup = async (email,password) =>{
         return auth.createUserWithEmailAndPassword(email,password)
     } 
-
-    const login = (email,password) => {
+    //login to user account
+    const login = async (email,password) => {
         return auth.signInWithEmailAndPassword(email,password)
     }
     //logut using auth from firebase
-    const logout = () => {
+    const logout = async () => {
         return auth.signOut()
     }
-
     //Open the Cart component after clicking on Cart icon in right corner
     const openCartFunc = () => {
         setOpenCart(true)
@@ -63,7 +60,7 @@ const AppProvider = ( {children} ) => {
     const addRef = (ref) => {
         setBtnRefs([...btnRefs, ref]);
     }
-    
+   
     return(
         <AppContext.Provider value={
             { 
