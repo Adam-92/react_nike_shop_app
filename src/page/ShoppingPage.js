@@ -8,6 +8,7 @@ import Cart from '../components/Cart'
 
 const ShoppingPage = () => {
    const {dataShoes,openCartFunc,cart, currentUser,logout} = useGlobalContext();
+   //logout btn show/hide state
    const [logOutBtn, setLogOutBtn] = React.useState(false);
    //create history for switching the route to login page if logout clicked
    const history = useHistory()
