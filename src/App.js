@@ -16,7 +16,7 @@ import PrivateRoute from './components/PrivateRoute'
 
 function App () {
   const location = useLocation();
-
+ 
   return (
         <TransitionGroup>
           <CSSTransition 

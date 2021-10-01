@@ -1,23 +1,32 @@
 import React from 'react'
+import {useLocation} from 'react-router-dom'
 import { useGlobalContext } from '../context/context'
 import Tabs from './Tabs'
 
 const Layout = ( {children} ) => {
     //import from Context
-    const {tab, setTab, tabVisibility} = useGlobalContext()
+    const {tabToggle,setTabToggle, tabVisibility} = useGlobalContext()
     
     //reference to tabs container DOM to control the visibility
-    const tabRef = React.useRef(null);    
+    const tabRef = React.useRef(null); 
+
+    //useLocation
+    const location = useLocation();
+    console.log(location)
+    console.log(tabToggle)
+    React.useEffect( () => {
+        return  location.pathname === '/' ? setTabToggle(1)
+               :location.pathname === '/register' ? setTabToggle(1)
+               :location.pathname === '/login' ? setTabToggle(2)
+               : '';
+    },[])
+
     React.useEffect( () =>{
        tabVisibility ? 
             tabRef.current.style.display = "flex" 
           : tabRef.current.style.display = "none";
     },[tabVisibility])
     
-    //lights up the correct tab according to address :/login or :/register
-    React.useEffect( () => {
-        children.type.name === 'RegisterComponent' ? setTab(false) : setTab(true)
-    },[])
 
     return(
         <main className="page">
@@ -27,7 +36,7 @@ const Layout = ( {children} ) => {
             </section>
             <section className={`main-section ${!tabVisibility && 'center'}`}>
                 {/*if form is filled up correctly and submitted then tab disappears */}
-                <Tabs  tab={tab} ref={tabRef}/>
+                <Tabs  tab={tabToggle} ref={tabRef}/>
                 {/*render register RegisterComponent/LoginComponent or RegisterSuccess*/}
                 {children}
             </section>

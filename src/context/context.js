@@ -14,7 +14,7 @@ const AppProvider = ( {children} ) => {
     const [tabVisibility, setTabVisibility] = useState(true);
     /*toggle beewten tabs -> login/register, register/login.
     switch beeten RegisterComponent and LoginComponent*/
-    const [tab, setTab] = useState(false);    
+    const [tabToggle, setTabToggle] = useState(1);    
     //js file with the database shoes 
     const [dataShoes, setDataShoes] = useState(databaseShoes);
     //open/close cart component
@@ -67,7 +67,7 @@ const AppProvider = ( {children} ) => {
               currentUser,
               isSubmitted,
               loading,
-              tab,
+              tabToggle,
               openCart,
               dataShoes,
               cart,
@@ -78,7 +78,7 @@ const AppProvider = ( {children} ) => {
               logout,
               addRef,
               setTabVisibility,
-              setTab,
+              setTabToggle,
               setLoading,
               setIsSubmitted,
               openCartFunc,
