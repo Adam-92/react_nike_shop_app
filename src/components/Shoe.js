@@ -1,15 +1,15 @@
 import React from 'react'
-import {useGlobalContext} from '../context/context'
+import {useGlobalContext} from '../context/Context'
 
-const Shoe = ( {id,modelName,price,availableSize,img} ) =>{
-
-    const {dataShoes,newCart,cart, addRef} = useGlobalContext();
+const Shoe = ( {id,model,price,size,img} ) =>{
+    //import form Context
+    const {newCart,cart, addRef,data} = useGlobalContext();
     //create ref to button
     let buttonRef = React.createRef();
 
     const putIntoCart = (e,id) =>{
         //find in dataShoes correct shoe by ID
-        const shoe = dataShoes.find(shoe => shoe.id === id);
+        const shoe = data.find(shoe => shoe.id === id);
         //take the target DOM shoe
         const item = e.target;
         //add shoe and check the content to not double the shoe
@@ -28,21 +28,20 @@ const Shoe = ( {id,modelName,price,availableSize,img} ) =>{
         addRef(buttonRef.current);
     }
 
-    
     return(
         <div className="container-shoe">
             <div className="img-shoe">
-                <img src={img} alt={modelName}></img>
+                <img src={img} alt={model}></img>
             </div>
             <div>
-                <p className="name-shoe">
-                    {modelName}
+                <h5 className="name-shoe">
+                    {model}
                     <div className="underline-shoe"></div>
-                </p>
+                </h5>
             </div>
             <div className="information-shoe">
-                <p>Size: {availableSize}</p>
-                <p>Price: {price}$</p>
+                <h5>Size: {size}</h5>
+                <h5>Price: {price}$</h5>
             </div>
             <div className="putIntoCart-shoe">
                 <button onClick={(e)=>putIntoCart(e,id)} ref={buttonRef} id={id}>PUT IN CART</button>

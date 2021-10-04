@@ -1,11 +1,14 @@
 import React from 'react'
+//import Link to move to the direct route
 import {Link} from 'react-router-dom'
-import {useGlobalContext} from '../context/context'
+//import Context
+import {useGlobalContext} from '../context/Context'
+//import icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck} from '@fortawesome/free-solid-svg-icons'
 
 const RegisterSuccess = () => {
-    
+    //import from Context
     const {setTabVisibility, setIsSubmitted} = useGlobalContext();
     const changeTabPosition = () => {
         //turns on the visibility of tab

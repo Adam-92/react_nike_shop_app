@@ -1,11 +1,13 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
-import { useGlobalContext } from '../context/context'
+//import 
+import { useGlobalContext } from '../context/Context'
 import CartItemContainer from './CartItemContainer'
 
 const Cart = () => {
-    const {openCart,closeCartFunc} = useGlobalContext();
+    //import from Context
+    const {openCart,setOpenCart} = useGlobalContext();
 
     return(
         <aside className={`container-cart ${openCart && 'show-cart'}`}>
@@ -13,7 +15,7 @@ const Cart = () => {
                 <h1 className="summary-cart">
                     SUMMARY
                 </h1>
-                <FontAwesomeIcon icon={faSignOutAlt} className="icon-close-cart" onClick={closeCartFunc}/>
+                <FontAwesomeIcon icon={faSignOutAlt} className="icon-close-cart" onClick={()=>setOpenCart(false)}/>
                 <CartItemContainer />
             </div>
         </aside>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGlobalContext } from '../context/context'
+import { useGlobalContext } from '../context/Context'
 import RegisterComponent from '../components/RegisterComponent'
 import Layout from  '../components/Layout'
 import RegisterSuccess from '../components/RegisterSuccess'

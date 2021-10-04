@@ -1,20 +1,34 @@
-import React from 'react'
-import { useGlobalContext } from '../context/context' 
-import { useHistory } from 'react-router-dom'
+import React,{useEffect, useState} from 'react'
+import { useGlobalContext } from '../context/Context' 
+import { useHistory} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserCircle,faCartArrowDown } from '@fortawesome/free-solid-svg-icons'
+//import font icons
+import { faUserCircle,faCartArrowDown} from '@fortawesome/free-solid-svg-icons'
+//import ShoesContainer component
 import ShoesContainer from '../components/ShoesContainer'
+//import Cart component
 import Cart from '../components/Cart'
+//import loading API response
+import LoadingApiResponse from '../components/LoadingApiResponse'
+//import Error Page
+import Error from './Error'
+
 
 const ShoppingPage = () => {
-   const {dataShoes,openCartFunc,cart, currentUser,logout} = useGlobalContext();
+   //import from Context
+   const {setOpenCart,cart,currentUser,logout,loading,fetchData,error,setError,data} = useGlobalContext()
    //logout btn show/hide state
-   const [logOutBtn, setLogOutBtn] = React.useState(false);
+   const [logOutBtn, setLogOutBtn] = useState(false)
    //create history for switching the route to login page if logout clicked
    const history = useHistory()
-   
-   //error for gathering info about failed handleLogut
-   const [error, setError] = React.useState('');
+
+   useEffect( () => {
+        fetchData()
+   },[])
+
+   console.log(error)
+   console.log(loading);
+   console.log(data)
 
    //logut function and redirect to login
    const handleLogut = async () => {
@@ -22,10 +36,22 @@ const ShoppingPage = () => {
             await logout()
             history.push('/login')
         }catch(err){
-            setError({logout:err})
+            setError({...error,logout:err})
         }
    }
+   
+   if(loading){
+       return(
+         <LoadingApiResponse text="Fetching data..." />
+       )
+   }
 
+   if(error.fetch){
+       return(
+         <Error text='Sorry but there is an issue, please try later...'/>
+    )
+   }
+   
     return(
         <main className="container-shoppingPage">
             <article className="content-shoppingPage">
@@ -41,15 +67,19 @@ const ShoppingPage = () => {
                         {/*end of profile*/}
                         <p className="welcome-shoppingPage">Welcome {currentUser.email}!</p>
                         {/*cart*/}
-                        <div className="cart-shoppingPage" onClick={openCartFunc}>
+                        <div className="cart-shoppingPage" onClick={()=>setOpenCart(true)}>
                              <FontAwesomeIcon icon={faCartArrowDown} className="icon-cart-shoppingPage" />
                              <p className="shoesInCart-shoppingPage">{cart.length}</p>
                         </div>
                         {/*end of cart*/}
                     </header>
                 </nav>
-                <ShoesContainer shoes={dataShoes} />
+                <ShoesContainer shoes={data} />
                 <Cart/>
+                {error.logut && 
+                        <div style={{margin: '1em',color: 'red'}}>
+                            <span>{error.logut}</span>        
+                        </div>}
             </article>
         </main>
     )

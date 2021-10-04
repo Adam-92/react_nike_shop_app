@@ -1,8 +1,10 @@
 import React,{useEffect,useRef} from 'react'
+import {useGlobalContext} from '../context/Context'
 import {useHistory} from 'react-router-dom'
-import {useGlobalContext} from '../context/context'
+//import UseForm
 import {UseForm} from './UseForm'
-import validate from '../validate'
+//import validate function
+import validate from '../validation/validate'
 //import loading component
 import LoadingApiResponse from './LoadingApiResponse'
 //import font icons
@@ -48,10 +50,11 @@ const LoginComponent = () => {
                 if(response.user){
                     setLoading(false)
                     setTabVisibility(true)
+                    //switch into address /shoppingPage/user
                     history.push('/shoppingPage/user')
                 }
             })
-            //if there is problem with the creating firebase acc then display message 
+            //if there is a problem with the login then display message 
             .catch( err => {
                 setTabVisibility(true);
                 setLoading(false)
@@ -64,7 +67,7 @@ const LoginComponent = () => {
     //if loading true then show loading screen
     if(loading){
         return(
-            <LoadingApiResponse />
+            <LoadingApiResponse text='Please wait. We are checking back-end validation.'/>
         )
     }
 

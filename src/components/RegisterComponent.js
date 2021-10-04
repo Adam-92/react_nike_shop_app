@@ -1,7 +1,10 @@
 import React,{useEffect,useRef} from 'react'
-import {useGlobalContext} from '../context/context'
+//import Context
+import {useGlobalContext} from '../context/Context'
+//import UseForm
 import {UseForm} from './UseForm'
-import validate from '../validate'
+//import validate function
+import validate from '../validation/validate'
 //import loading component
 import LoadingApiResponse from './LoadingApiResponse'
 //import font icons
@@ -10,7 +13,9 @@ import { faUser,faUnlockAlt,faEnvelope} from '@fortawesome/free-solid-svg-icons'
 
 const RegisterComponent = () => {
     const focusInput = useRef('');
+    //import from UseForm functions needed to check the js validation
     const {inputValue,isSubmitting,error,setIsSubmitting,setError,handleSubmit, onChangeValue} = UseForm(validate);
+    //import from Context
     const {currentUser,signup,setIsSubmitted,loading,setLoading,setTabVisibility} = useGlobalContext();
     
     //ref to foucs input after load web
@@ -45,7 +50,7 @@ const RegisterComponent = () => {
 
     if(loading){
         return(
-            <LoadingApiResponse />
+            <LoadingApiResponse text='Please wait. We are checking back-end validation.'/>
         )
     }
 

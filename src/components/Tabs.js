@@ -1,8 +1,7 @@
 import React from  'react'
 import {Link} from 'react-router-dom'
-
+//Tabs component Register/Login
 const Tabs = ( { tab }, ref ) => {
-    
     return(
         <div className="container-Tabs" ref={ref} >
             {/*add class toggle to change the position of the lighted up tab*/}

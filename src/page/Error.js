@@ -3,11 +3,11 @@ import {Link} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
 
-const Error = () =>{
+const Error = ( {text}) =>{
     return(
         <main className="error-container">
             <header>
-                <h1>Ooops wrong way, please go back.</h1>
+                <h1>{text}</h1>
             </header>
             <Link to="/">
                 <FontAwesomeIcon 

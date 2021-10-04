@@ -2,18 +2,18 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight,faChevronLeft, faWindowClose} from '@fortawesome/free-solid-svg-icons'
 
-const CartItem = ( {id,img,modelName,price,amount,deleteShoeFromCart,addAmount,subtractAmount}) => {
+const CartItem = ( {id,img,model,price,amount,deleteShoeFromCart,addAmount,subtractAmount}) => {
     
     return(
         <div className="container-cartItem">
             <div className="picture-cartItem">
                 <img 
                      src={img}
-                     alt={modelName}>
+                     alt={model}>
                 </img>
             </div>
             <div className="name-cartItem">
-                <p>{modelName}</p>
+                <p>{model}</p>
                 <p className="price-cartItem">
                     {price} $
                 </p>

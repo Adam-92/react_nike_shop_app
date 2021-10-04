@@ -1,10 +1,13 @@
 import React, {useEffect,useState,useContext} from 'react';
 import {auth} from '../firebase'
-import databaseShoes from '../databaseShoes';
 
+//create context
 const AppContext = React.createContext();
 
 const AppProvider = ( {children} ) => {
+    //database with shoes
+    const [data, setData] = useState([])
+    //check the state of user, if login or not
     const [currentUser, setCurrentUser] = useState();
     //if the validation is correct, switch to true (show success component)
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -12,18 +15,21 @@ const AppProvider = ( {children} ) => {
     const [loading, setLoading] = useState(false);
     //set the tab component visibility as a DOM element
     const [tabVisibility, setTabVisibility] = useState(true);
-    /*toggle beewten tabs -> login/register, register/login.
-    switch beeten RegisterComponent and LoginComponent*/
+    /*toggle beewten tabs -> login/register, register/login. 
+     if state is 1 then register tab is highlighted, 2 -login*/
     const [tabToggle, setTabToggle] = useState(1);    
-    //js file with the database shoes 
-    const [dataShoes, setDataShoes] = useState(databaseShoes);
-    //open/close cart component
+    //Open/close the Cart component after clicking on Cart icon in right corner
     const [openCart,setOpenCart] = useState(false);
     //array for gathering picked shoes 
     const [cart, setCart] = useState([]);
     //btn refs - used to change the DOM status PUT IN CART/ IN CART
     const [btnRefs, setBtnRefs] = useState([]);
-    
+    //error for gathering info about fetch issues
+    const [error, setError] = useState({
+        fetch: '',
+        logout: ''
+    })
+    console.log(currentUser);
     useEffect( () => {
         //asynchronic function to fetch current user
         const unsubscribe = auth.onAuthStateChanged(user=> {
@@ -31,7 +37,7 @@ const AppProvider = ( {children} ) => {
         })
         return unsubscribe;
     },[])
-  
+    
     //create new user with email using Firebase
     const signup = async (email,password) =>{
         return auth.createUserWithEmailAndPassword(email,password)
@@ -44,14 +50,6 @@ const AppProvider = ( {children} ) => {
     const logout = async () => {
         return auth.signOut()
     }
-    //Open the Cart component after clicking on Cart icon in right corner
-    const openCartFunc = () => {
-        setOpenCart(true)
-    }
-    //Close the Cart component after clicking on Cart icon in right corner
-    const closeCartFunc = () => {
-        setOpenCart(false)
-    }
     //Set new array of cart
     const newCart = (array) => {
         setCart(array);
@@ -61,33 +59,94 @@ const AppProvider = ( {children} ) => {
         setBtnRefs([...btnRefs, ref]);
     }
    
+    //contenfull config
+    const contenfullConfig = {
+    space: 'ecg5hum2lttf',
+    token: 'plYkQzohukQgIMiWaYRkjysVjmIuDioUedjUiiqqQCI',   
+    } 
+    //contenfull query
+    const query = `
+    {
+           nikeShopCollection{
+            items{
+               id,
+               model,
+               img,
+               price,
+               size,
+               amount
+            }
+        }
+    }`
+    //fetch data function
+    const fetchData = async () =>{
+        setLoading(true)
+        try{
+            const response = await fetch(`https://graphql.contentful.com/content/v1/spaces/${contenfullConfig.space}/`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    // Authenticate the request
+                Authorization: `Bearer ${contenfullConfig.token}`,
+            },
+            // send the GraphQL query
+            body: JSON.stringify({query}),
+        })
+            const object = await response.json()
+            if(object){
+                const array = object.data.nikeShopCollection.items.map(item=>{
+                    const {id,model,img,size,price,amount} = item
+                    return(
+                        {
+                            id: id,
+                            model: model,
+                            img: img,
+                            size: size,
+                            price: price,
+                            amount: amount
+                        }
+                    )
+                })
+                setLoading(false)
+                setData(array)
+            }else{
+                setData([])
+            }
+        }catch(err){
+            setLoading(false)
+            setError({...error,fetch: err})
+        }
+    } 
+
+   
     return(
         <AppContext.Provider value={
             { 
+              data,
               currentUser,
               isSubmitted,
               loading,
               tabToggle,
               openCart,
-              dataShoes,
               cart,
               btnRefs,
               tabVisibility,
+              error,
               signup,
               login,
               logout,
               addRef,
+              fetchData,
+              setData,
               setTabVisibility,
               setTabToggle,
               setLoading,
               setIsSubmitted,
-              openCartFunc,
-              closeCartFunc,
-              newCart
+              setOpenCart,
+              newCart,
+              setError
             }
         }>
-        {/*if firebase retured currentUuser then render children */}
-        {/*currentUser ? children : null*/}
             {children}
         </AppContext.Provider>
     )

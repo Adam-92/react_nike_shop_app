@@ -487,6 +487,7 @@ article.content-shoppingPage{
   width: 100%;
 }
 .information-shoe{
+  text-align: center;
   font-size: 1.2rem;
   font-weight: 400;
 }
@@ -673,7 +674,7 @@ article.content-shoppingPage{
     padding: .4em 1.2em;
   }
   .welcome-shoppingPage{
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     margin: 0 .9em;
   }
   .putIntoCart-shoe button{
