@@ -653,6 +653,7 @@ article.content-shoppingPage{
   .container-LoginComponent,
   .container-RegisterComponent{
    max-width: 80%;
+   margin: auto 0;
   }
   .container-RegisterSuccess{
     max-height: 380px;
