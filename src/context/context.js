@@ -80,7 +80,6 @@ const AppProvider = ( {children} ) => {
     }`
     //fetch data function
     const fetchData = async () =>{
-        setLoading(true)
         try{
             const response = await fetch(`https://graphql.contentful.com/content/v1/spaces/${contenfullConfig.space}/`, {
                 method: "POST",
@@ -107,13 +106,11 @@ const AppProvider = ( {children} ) => {
                         }
                     )
                 })
-                setLoading(false)
                 setData(array)
             }else{
                 setData([])
             }
         }catch(err){
-            setLoading(false)
             setError({...error,fetch: err})
         }
     } 

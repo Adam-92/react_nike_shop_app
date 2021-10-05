@@ -8,8 +8,6 @@ import { faUserCircle,faCartArrowDown} from '@fortawesome/free-solid-svg-icons'
 import ShoesContainer from '../components/ShoesContainer'
 //import Cart component
 import Cart from '../components/Cart'
-//import loading API response
-import LoadingApiResponse from '../components/LoadingApiResponse'
 //import Error Page
 import Error from './Error'
 
@@ -40,11 +38,7 @@ const ShoppingPage = () => {
         }
    }
    
-   if(loading){
-       return(
-         <LoadingApiResponse text="Fetching data..." />
-       )
-   }
+
 
    if(error.fetch){
        return(

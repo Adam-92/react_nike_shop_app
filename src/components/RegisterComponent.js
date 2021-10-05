@@ -56,7 +56,7 @@ const RegisterComponent = () => {
 
     return(
         <div className="container-RegisterComponent">
-            {currentUser ? currentUser.email : <p>not logged</p>}
+            {/*currentUser ? currentUser.email : <p>not logged</p>*/}
             <header className="header-RegisterComponent ">
                 <h1>Join to our team!</h1>
                 <div className="underline-RegisterComponent"></div>

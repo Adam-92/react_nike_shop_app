@@ -74,7 +74,6 @@ section{
 /*---------------TABS COMPONENT----------------------*/
 .container-Tabs{
   position: relative;
-  margin-bottom: 6em;
   top: 4%;
   display: flex;
   justify-content:center;
@@ -141,6 +140,7 @@ transition: all ease 1s;
 .comunication-loadingApiResponse{
   font-size: 2rem;
   text-align: center;
+  width: 80%;
 }
 
 /* Safari */
@@ -161,7 +161,9 @@ transition: all ease 1s;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 5em;
   min-width: 53%;
+  max-width: 56%;
   height: auto;
   background-color: rgb(235, 235, 241);
   border-radius: 3em;
@@ -266,7 +268,9 @@ input:focus + .icon{
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 5em;
   min-width: 53%;
+  max-width: 56%;
   height: auto;
   background-color: rgb(235, 235, 241);
   border-radius: 3em;
@@ -636,9 +640,8 @@ article.content-shoppingPage{
     background-position: center;
     background-size: cover;
   }
-  .tabs-container{
-    top: 4%;
-    margin-bottom: 4em;
+  .container-Tabs{
+    top: 5%;
   }
   .tab-btn{
     font-size: 1.2rem;
@@ -649,7 +652,7 @@ article.content-shoppingPage{
 
   .container-LoginComponent,
   .container-RegisterComponent{
-   height: auto;
+   max-width: 80%;
   }
   .container-RegisterSuccess{
     max-height: 380px;

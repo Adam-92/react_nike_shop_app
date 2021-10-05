@@ -31,8 +31,11 @@ function App () {
               <Route path="/login" component={Login} exact />
               {/*Private route*/}
              {<PrivateRoute path="/shoppingPage/user" component={ShoppingPage} exact />}
-              {/* <Route path='/ShoppingPage/user' component={ShoppingPage} exact /> */}
-              <Route path="*" component={Error} />
+              <Route path="*" 
+                     render={ (props)=>(
+                        <Error {...props} text="Ooops wrong way, please go back" />
+                     )}
+              />
             </Switch>
           </CSSTransition>
         </TransitionGroup>
