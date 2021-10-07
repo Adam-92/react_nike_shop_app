@@ -13,12 +13,12 @@ const Layout = ( {children} ) => {
     /*use location to track the pathname and set the proper higlight tab
       for example. "localhost/login", so tab- login should be highlighted*/
     const location = useLocation();
+    
     React.useEffect( () => {
-        return  location.pathname === '/' ? setTabToggle(1)
-               :location.pathname === '/register' ? setTabToggle(1)
+        return  location.pathname === '/register' ? setTabToggle(1)
                :location.pathname === '/login' ? setTabToggle(2)
                : '';
-    },[])
+    },[location.pathname, setTabToggle])
 
     React.useEffect( () =>{
        tabVisibility ? 

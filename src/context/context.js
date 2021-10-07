@@ -29,15 +29,22 @@ const AppProvider = ( {children} ) => {
         fetch: '',
         logout: ''
     })
-    console.log(currentUser);
+
+    console.log(currentUser, 'context');
     useEffect( () => {
-        //asynchronic function to fetch current user
         const unsubscribe = auth.onAuthStateChanged(user=> {
             setCurrentUser(user);
         })
         return unsubscribe;
+        
     },[])
     
+    const onAuthChange = async () =>{
+        auth.onAuthStateChanged(user=>{
+            setCurrentUser(user)
+        })
+    }
+
     //create new user with email using Firebase
     const signup = async (email,password) =>{
         return auth.createUserWithEmailAndPassword(email,password)

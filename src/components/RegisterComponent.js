@@ -16,26 +16,32 @@ const RegisterComponent = () => {
     //import from UseForm functions needed to check the js validation
     const {inputValue,isSubmitting,error,setIsSubmitting,setError,handleSubmit, onChangeValue} = UseForm(validate);
     //import from Context
-    const {currentUser,signup,setIsSubmitted,loading,setLoading,setTabVisibility} = useGlobalContext();
+    const {signup,setIsSubmitted,loading,setLoading,setTabVisibility} = useGlobalContext();
     
     //ref to foucs input after load web
     useEffect( () => {
         focusInput.current.focus();
     },[])
     
+    const dependencies = useRef(false)
+    console.log(dependencies.current);
     //if user pressed the submit and there are no errors carry out asynchronic function signup and make an account in firebase
     useEffect( () => {
         if(Object.values(error).length === 0 && isSubmitting){
             //turn on loading component
-            setLoading(true)
+            dependencies.current ? setLoading(true) : dependencies.current = true
             //turn off tab visibility
             setTabVisibility(false);
             //create firebase acc
             signup(inputValue.email, inputValue.password)
             .then( response => {
                 if(response.user){
-                    setLoading(false);
-                    setIsSubmitted(true);
+                    //update profile name
+                    response.user.updateProfile({displayName: inputValue.username})
+                    .then(()=>{
+                        setLoading(false);
+                        setIsSubmitted(true);
+                    })
                 }
             })
             //if there is problem with the createing firebase acc then display message 
@@ -46,7 +52,7 @@ const RegisterComponent = () => {
                 setIsSubmitting(false);
             })
         }
-    }, [isSubmitting,error])    
+    }, [isSubmitting,error,setLoading])    
 
     if(loading){
         return(

@@ -14,19 +14,16 @@ import Error from './Error'
 
 const ShoppingPage = () => {
    //import from Context
-   const {setOpenCart,cart,currentUser,logout,loading,fetchData,error,setError,data} = useGlobalContext()
+   const {setOpenCart,cart,currentUser,logout,fetchData,error,setError,data} = useGlobalContext()
    //logout btn show/hide state
    const [logOutBtn, setLogOutBtn] = useState(false)
    //create history for switching the route to login page if logout clicked
    const history = useHistory()
-
-   useEffect( () => {
+    console.log('shoppingPage - render');
+   
+    useEffect( () => {
         fetchData()
-   },[])
-
-   console.log(error)
-   console.log(loading);
-   console.log(data)
+   },[fetchData])
 
    //logut function and redirect to login
    const handleLogut = async () => {
@@ -59,7 +56,7 @@ const ShoppingPage = () => {
                                           </div>} 
                         </div>
                         {/*end of profile*/}
-                        <p className="welcome-shoppingPage">Welcome {currentUser.email}!</p>
+                        <p className="welcome-shoppingPage">Welcome {currentUser.displayName}!</p>
                         {/*cart*/}
                         <div className="cart-shoppingPage" onClick={()=>setOpenCart(true)}>
                              <FontAwesomeIcon icon={faCartArrowDown} className="icon-cart-shoppingPage" />

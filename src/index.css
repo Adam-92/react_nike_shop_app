@@ -172,6 +172,7 @@ transition: all ease 1s;
 
 .header-RegisterComponent h1,
 .header-LoginComponent h1{
+  text-align: center;
   font-size: 2.3rem;  
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 1px;
@@ -619,11 +620,47 @@ article.content-shoppingPage{
   margin-top: 0.5em;
   font-size: 6em;
 }
+
 /*------END OF ERROR COMPONENT ----*/
+
+/*------ANIMATIONS FOR THE TRANSITION GROUP----*/
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+/*------END OF ANIMATIONS FOR THE TRANSITION GROUP-*/
 
 
 /*------RESPONSIVE-----------------*/
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 571px) and (max-width: 1200px) {
+  html{
+    font-size: 14px;
+  }
+  .container-shoesContainer{
+    min-width: 90%;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  }
+  .header-shoppingPage{
+    font-size: 2.5rem;
+    margin: .5em 1em;
+  }
+  .container-LoginComponent,
+  .container-RegisterComponent{
+    min-width: 270px;
+  }
+}
+@media screen and (max-width: 570px) {
   html{
     font-size: 12px;
   }
@@ -693,22 +730,5 @@ article.content-shoppingPage{
   }
 }
 /*------END OF RESPONSIVE-----------------*/
-
-/*------ANIMATIONS FOR TRANSITION GROUP----*/
-.fade-enter {
-  opacity: 0;
-}
-.fade-enter-active {
-  opacity: 1;
-  transition: opacity 500ms;
-}
-.fade-exit {
-  opacity: 1;
-}
-.fade-exit-active {
-  opacity: 0;
-  transition: opacity 500ms;
-}
-/*------END OF ANIMATIONS FOR TRANSITION GROUP-*/
 
 
