@@ -23,13 +23,12 @@ const RegisterComponent = () => {
         focusInput.current.focus();
     },[])
     
-    const dependencies = useRef(false)
-    console.log(dependencies.current);
+    
     //if user pressed the submit and there are no errors carry out asynchronic function signup and make an account in firebase
     useEffect( () => {
         if(Object.values(error).length === 0 && isSubmitting){
             //turn on loading component
-            dependencies.current ? setLoading(true) : dependencies.current = true
+            setLoading(true)
             //turn off tab visibility
             setTabVisibility(false);
             //create firebase acc
@@ -52,7 +51,7 @@ const RegisterComponent = () => {
                 setIsSubmitting(false);
             })
         }
-    }, [isSubmitting,error,setLoading])    
+    }, [isSubmitting,error])    
 
     if(loading){
         return(

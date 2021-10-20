@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import React,{ useState } from 'react'
 import { useGlobalContext } from '../context/Context' 
 import { useHistory} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,16 +14,12 @@ import Error from './Error'
 
 const ShoppingPage = () => {
    //import from Context
-   const {setOpenCart,cart,currentUser,logout,fetchData,error,setError,data} = useGlobalContext()
+   const {setOpenCart,cart,currentUser,logout,data,error,setError} = useGlobalContext()
    //logout btn show/hide state
    const [logOutBtn, setLogOutBtn] = useState(false)
    //create history for switching the route to login page if logout clicked
    const history = useHistory()
     console.log('shoppingPage - render');
-   
-    useEffect( () => {
-        fetchData()
-   },[fetchData])
 
    //logut function and redirect to login
    const handleLogut = async () => {
@@ -35,8 +31,6 @@ const ShoppingPage = () => {
         }
    }
    
-
-
    if(error.fetch){
        return(
          <Error text='Sorry but there is an issue, please try later...'/>

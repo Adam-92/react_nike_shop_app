@@ -1,7 +1,7 @@
 import React from 'react'
 import Shoe from './Shoe'
 
-const ShoesContainer = ( {shoes} ) => {
+const ShoesContainer =( {shoes} ) => {
 
     return(
         <div className="container-shoesContainer">
