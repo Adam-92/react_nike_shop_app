@@ -23,7 +23,7 @@ const query = `
                    amount
                 }
             }
-        }`;
+    }`;
 
 const AppProvider = ({ children }) => {
   //database with shoes
