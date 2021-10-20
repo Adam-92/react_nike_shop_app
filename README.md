@@ -1,9 +1,9 @@
-Project made in React. The idea was to make a NIKE shop. Just for shop purposes, I have placed a few example shoes at the Contenfull server and fetch them after successful login.
+Project made in React. The idea was to make a NIKE shop. Just for shop purposes, I have placed a few example shoes at the Contenfull server and fetch from app context.
 The project is not fully ready. I'm currently finishing it, by cleaning the notifications from the console. 
 
 The project includes:
 - JS validation (live).
-- backend validation (firebase) with the list with the registered users(available from my firebase account)
+- backend validation (firebase) with the list of registered users(available from my firebase account)
 - react-router-dom(to switch between pages)
 - CSS transition(to make animation between pages)
 - handle fetch responses and errors
