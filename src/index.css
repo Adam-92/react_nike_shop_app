@@ -662,7 +662,7 @@ article.content-shoppingPage{
 }
 @media screen and (max-width: 570px) {
   html{
-    font-size: 12px;
+    font-size: 11px;
   }
   article{
     height: auto;
@@ -678,10 +678,10 @@ article.content-shoppingPage{
     background-size: cover;
   }
   .container-Tabs{
-    top: 5%;
+    top: 2%;
   }
   .tab-btn{
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .img-section{
     display: none;
