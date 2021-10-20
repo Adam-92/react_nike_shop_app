@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 //import UseForm
 import { UseForm } from "./UseForm";
 //import validate function
-import validate from "../validation/validate";
+import validate from "../form_validation/validate";
 //import loading component
 import LoadingApiResponse from "./LoadingApiResponse";
 //import font icons
