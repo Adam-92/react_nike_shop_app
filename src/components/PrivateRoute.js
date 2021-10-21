@@ -4,7 +4,7 @@ import { useGlobalContext} from '../context/Context'
 //Private route function, to secure the choosen route
 export default function PrivateRoute( {component: Component, ...rest}) {
     const {currentUser} = useGlobalContext()
- 
+
     return (
         <Route 
             {...rest}

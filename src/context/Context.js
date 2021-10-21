@@ -50,10 +50,13 @@ const AppProvider = ({ children }) => {
     fetch: "",
     logout: "",
   });
-
+  //render children if response has came back (status of currentUser)
+  const [pending, setPending] = useState(true)
+ 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
+      setPending(false)
     });
     return unsubscribe;
   }, []);
@@ -149,7 +152,7 @@ const AppProvider = ({ children }) => {
         setError,
       }}
     >
-      {children}
+      { !pending ? children : null }
     </AppContext.Provider>
   );
 };

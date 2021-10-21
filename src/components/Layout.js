@@ -22,8 +22,8 @@ const Layout = ( {children} ) => {
 
     React.useEffect( () =>{
        tabVisibility ? 
-            tabRef.current.style.display = "flex" 
-          : tabRef.current.style.display = "none";
+          tabRef.current.style.display = "block" 
+        : tabRef.current.style.display = "none"
     },[tabVisibility])
     
 
