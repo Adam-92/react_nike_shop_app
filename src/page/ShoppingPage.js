@@ -19,8 +19,7 @@ const ShoppingPage = () => {
    const [logOutBtn, setLogOutBtn] = useState(false)
    //create history for switching the route to login page if logout clicked
    const history = useHistory()
-    console.log('shoppingPage - render');
-
+   
    //logut function and redirect to login
    const handleLogut = async () => {
         try{

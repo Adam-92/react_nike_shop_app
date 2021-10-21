@@ -1,11 +1,11 @@
 import {useState} from 'react'
 
 const UseForm = (validate) => {
-    //js validation if the form is not filled correctly
+    //save errors if there is error after submit button - live validation
     const [error, setError] = useState({});
     //changes to true if user click submit (if this is true and there are not errors then try to make firebase acc)
     const [isSubmitting, setIsSubmitting] = useState(false);    
-    //inputs value
+    //inputs values
     const [inputValue, setInputValue] = useState({
         username: '',
         email: '',
@@ -15,8 +15,9 @@ const UseForm = (validate) => {
     )
     
     const handleSubmit = (e) =>{
+       //dont refresh page
        e.preventDefault();
-       //return errors from validate(inputValues)
+       //return errors from the validate(inputValues)
        setError(validate(inputValue));
        setIsSubmitting(true);
     }

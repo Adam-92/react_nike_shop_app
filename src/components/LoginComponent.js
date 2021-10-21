@@ -59,7 +59,6 @@ const LoginComponent = () => {
         //login
         login(inputValue.email, inputValue.password)
           .then((response) => {
-            console.log(response, 'response from loginAsync');
             if (response.user) {
               setLoading(false);
               setTabVisibility(true);
