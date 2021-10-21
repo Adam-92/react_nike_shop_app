@@ -73,11 +73,14 @@ section{
 
 /*---------------TABS COMPONENT----------------------*/
 .container-Tabs{
+  margin: 3em auto;
+  width: 50%;
+}
+
+.Tabs{
   position: relative;
-  top: 4%;
   display: flex;
   justify-content:center;
-  width: 50%;
   color: white;
   cursor:pointer;
   background-color: white;
@@ -161,7 +164,6 @@ transition: all ease 1s;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5em;
   min-width: 53%;
   max-width: 56%;
   height: auto;
@@ -269,7 +271,6 @@ input:focus + .icon{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5em;
   min-width: 53%;
   max-width: 56%;
   height: auto;
@@ -677,9 +678,7 @@ article.content-shoppingPage{
     background-position: center;
     background-size: cover;
   }
-  .container-Tabs{
-    top: 5%;
-  }
+
   .tab-btn{
     font-size: 1rem;
   }
@@ -690,7 +689,6 @@ article.content-shoppingPage{
   .container-LoginComponent,
   .container-RegisterComponent{
    max-width: 80%;
-   margin: auto 0;
   }
   .container-RegisterSuccess{
     max-height: 380px;
