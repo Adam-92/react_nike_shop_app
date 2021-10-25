@@ -3,7 +3,7 @@ The project is not fully ready. I'm currently finishing it, by cleaning the noti
 
 The project includes:
 - JS validation (live).
-- backend validation (firebase) with the list of registered users(available from my firebase account)
+- backend validation (firebase) 
 - react-router-dom(to switch between pages)
 - CSS transition(to make animation between pages)
 - handle fetch responses and errors
