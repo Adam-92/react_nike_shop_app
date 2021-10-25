@@ -1,24 +1,23 @@
 import React, { useEffect, useRef } from "react";
-//import Context
-import { useGlobalContext } from "../context/Context";
-//import UseForm
-import { UseForm } from "./UseForm";
-//import validate function
-import validate from "../form_validation/validate";
-//import loading component
-import LoadingApiResponse from "./LoadingApiResponse";
-//import font icons
+//Import icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
   faUnlockAlt,
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
+//Import components
+import LoadingApiResponse from "./LoadingApiResponse";
+import { UseForm } from "./UseForm";
+//Import validate function
+import validate from "../form_validation/validate";
+//Import Context
+import { useGlobalContext } from "../context/Context";
 
+//Register form component
 const RegisterComponent = () => {
   const focusInput = useRef("");
-  
-  //import from UseForm functions needed to check the js validation
+
   const {
     inputValue,
     isSubmitting,
@@ -27,26 +26,32 @@ const RegisterComponent = () => {
     setError,
     handleSubmit,
     onChangeValue,
+    cleanForm
   } = UseForm(validate);
-  //import from Context
-  const { signup, setIsSubmitted, loading, setLoading, setTabVisibility } =
+
+  const { 
+    signup, 
+    setIsSubmitted, 
+    loading, 
+    setLoading, 
+    setTabVisibility } =
     useGlobalContext();
 
-  //ref to foucs input after load web
+  //Foucs input after load web
   useEffect(() => {
     focusInput.current.focus();
   }, []);
 
-  //if user pressed the submit and there are no errors carry out asynchronic function signup and make an account in firebase
+
   useEffect(() => {
     if (Object.values(error).length === 0 && isSubmitting) {
       setLoading(true);
       setTabVisibility(false);
-      //create firebase acc
+      //Signup async
       signup(inputValue.email, inputValue.password)
         .then((response) => {
           if (response.user) {
-            //update profile name
+            //Update profile name
             response.user
               .updateProfile({ displayName: inputValue.username })
               .then(() => {
@@ -62,6 +67,7 @@ const RegisterComponent = () => {
           setIsSubmitting(false);
         });
     }
+
   }, [isSubmitting, error]);
 
   if (loading) {

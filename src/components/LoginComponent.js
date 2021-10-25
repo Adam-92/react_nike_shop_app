@@ -1,20 +1,22 @@
 import React, { useEffect, useRef } from "react";
-import { useGlobalContext } from "../context/Context";
+//Import history from router
 import { useHistory } from "react-router-dom";
-//import UseForm
-import { UseForm } from "./UseForm";
-//import validate function
-import validate from "../form_validation/validate";
-//import loading component
-import LoadingApiResponse from "./LoadingApiResponse";
-//import font icons
+//Import icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
+//Import components
+import { UseForm } from "./UseForm";
+import LoadingApiResponse from "./LoadingApiResponse";
+//Import validation functions
+import validate from "../form_validation/validate";
+//Import global context
+import { useGlobalContext } from "../context/Context";
 
+//Login form component
 const LoginComponent = () => {
-  //ref to foucs input after load web
+  //Ref to foucs input after load web
   const focusInput = useRef("");
-  //import from UseForm
+
   const {
     inputValue,
     isSubmitting,
@@ -25,7 +27,6 @@ const LoginComponent = () => {
     onChangeValue,
   } = UseForm(validate);
   
-  //import from Context
   const { 
       login, 
       loading, 
@@ -33,37 +34,39 @@ const LoginComponent = () => {
       setTabVisibility 
   } = useGlobalContext();
 
-  //create history to switch the route after succesfull login
+  //Create history to switch the route after succesfull login
   const history = useHistory();
 
   useEffect(() => {
     focusInput.current.focus();
   }, []);
 
-  /*Because in Login panel we have only email and password fields we have to delete 
-      from const error properties username and confirm_password, so our validation check only username and email*/
+  /*
+    Because in Login panel we have only email and password fields we have to delete 
+    from const error properties username and confirm_password,
+    so our validation check only email and password
+  */
   const errorLogin = (object) => {
     if (object.username || object.confirm_password) {
       const { username, confirm_password, ...rest } = object;
       object = rest;
     }
-    //return lenght of values from email and password key, if 0 then we know that there are no errors
+    //Return lenght of values from email and password key, if 0 then we know that there are no errors
     return Object.values(object).length === 0 ? true : false;
   };
 
-  //if user pressed the submit and there are no errors carry out asynchronic function signup and make an account in firebase
-    useEffect( () => {
+  useEffect( () => {
       if (errorLogin(error) && isSubmitting) {
         setLoading(true);
         setTabVisibility(false);
-        //login
+        //Login async
         login(inputValue.email, inputValue.password)
           .then((response) => {
             if (response.user) {
               setLoading(false);
               setTabVisibility(true);
               //switch into address /shoppingPage/user
-              history.push("/shoppingPage/user");
+              history.push("/shopping/user");
               return;
             }
           })
@@ -75,7 +78,7 @@ const LoginComponent = () => {
           });
       }
     },[isSubmitting,error]) 
-
+  
   if (loading) {
     return (
       <LoadingApiResponse text="Please wait. We are checking back-end validation." />
@@ -123,7 +126,7 @@ const LoginComponent = () => {
               SUBMIT
             </button>
           </div>
-          {/*firebaseError display if exist*/}
+          {/*FirebaseError display if exist*/}
           <div style={{ margin: "1em", color: "red" }}>
             {error.firebaseError && <span>{error.firebaseError}</span>}
           </div>

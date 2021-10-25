@@ -1,6 +1,7 @@
 import React from 'react'
 import Shoe from './Shoe'
 
+//Container for shoes
 const ShoesContainer =( {shoes} ) => {
 
     return(

@@ -1,11 +1,11 @@
 import {useState} from 'react'
 
 const UseForm = (validate) => {
-    //save errors if there is error after submit button - live validation
+    //Save errors - live validation after click on submit
     const [error, setError] = useState({});
-    //changes to true if user click submit (if this is true and there are not errors then try to make firebase acc)
+    //If true and no errors try to Login(firebase) or Register(firebase) async
     const [isSubmitting, setIsSubmitting] = useState(false);    
-    //inputs values
+    //Inputs values
     const [inputValue, setInputValue] = useState({
         username: '',
         email: '',
@@ -13,15 +13,7 @@ const UseForm = (validate) => {
         confirm_password: '',
      }
     )
-    
-    const handleSubmit = (e) =>{
-       //dont refresh page
-       e.preventDefault();
-       //return errors from the validate(inputValues)
-       setError(validate(inputValue));
-       setIsSubmitting(true);
-    }
-
+ 
     const onChangeValue = (e) => {
         if(error[e.target.name]){
              setError({
@@ -35,6 +27,14 @@ const UseForm = (validate) => {
          });
     }
 
+    const handleSubmit = (e) =>{
+        //Dont refresh page
+        e.preventDefault()
+        //Return errors from the validate(inputValues)
+        setError(validate(inputValue))
+        setIsSubmitting(true)
+     }
+
     return{
         error,
         inputValue,
@@ -43,7 +43,7 @@ const UseForm = (validate) => {
         setError,
         setInputValue, 
         handleSubmit, 
-        onChangeValue, 
+        onChangeValue,
     }
 }
 

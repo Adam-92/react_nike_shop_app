@@ -1,9 +1,12 @@
 import React from 'react'
-import { useGlobalContext } from '../context/Context'
+//Import components
 import RegisterComponent from '../components/RegisterComponent'
 import Layout from  '../components/Layout'
 import RegisterSuccess from '../components/RegisterSuccess'
+//Import global context
+import { useGlobalContext } from '../context/Context'
 
+//Page - register
 const Register = () => {
     const {isSubmitted} = useGlobalContext();
 

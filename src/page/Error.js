@@ -1,5 +1,7 @@
 import React from 'react'
+//Import link to move to the chosen route
 import {Link} from 'react-router-dom'
+//Import icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
 

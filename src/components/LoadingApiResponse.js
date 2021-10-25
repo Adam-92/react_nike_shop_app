@@ -1,4 +1,5 @@
 import React from 'react'
+//Loading component
 const LoadingApiResponse = ( {text}) =>{
     return(
         <div className="container-loadingApiResponse">

@@ -1,22 +1,24 @@
 import React from 'react'
+//Import global context
 import {useGlobalContext} from '../context/Context'
 
+//Shoe component appears in the main view of shoppingPage
 const Shoe = ( {id,model,price,size,img} ) =>{
-    //import form Context
     const {newCart,cart, addRef,data} = useGlobalContext();
-    //create ref to button
+    //Create ref to button
     let buttonRef = React.createRef();
-
+    
+    //Put shoe into cart
     const putIntoCart = (e,id) =>{
-        //find in dataShoes correct shoe by ID
+        //Find in data correct shoe by ID
         const shoe = data.find(shoe => shoe.id === id);
-        //take the target DOM shoe
+        //Take the target DOM shoe
         const item = e.target;
-        //add shoe and check the content to not double the shoe
+        //Add shoe and check the content to not double the shoe
         const checkShoe = cart.some(item => item.id === shoe.id);
 
         if(!checkShoe){
-            //change the status-style of added shoe
+            //Change the style of added shoe
             item.innerText = 'IN CART';
             item.style.color = 'green';
             item.style.backgroundColor = 'white';
@@ -24,7 +26,7 @@ const Shoe = ( {id,model,price,size,img} ) =>{
             item.disabled = true;
             newCart([...cart, shoe]);
         }
-        //add DOM button to btnRefs array
+        //Add DOM button to btnRefs array
         addRef(buttonRef.current);
     }
 

@@ -1,15 +1,17 @@
 import React, { useEffect, useState, useContext } from "react";
+//Import firebase authentication
 import { auth } from "../config_firebase/firebase";
 
-//create context
+//Create context
 const AppContext = React.createContext();
 
-//contenfull config
+//Contenfull config
 const contenfullConfig = {
   space: "ecg5hum2lttf",
   token: "plYkQzohukQgIMiWaYRkjysVjmIuDioUedjUiiqqQCI",
 };
-//contenfull query
+
+//Contenfull query
 const query = `
      {
         nikeShopCollection{
@@ -26,36 +28,38 @@ const query = `
     }`;
 
 const AppProvider = ({ children }) => {
-  //database with shoes
+  //Database with shoes
   const [data, setData] = useState([]);
-  //check the state of user, if login or not
+  //Check the state of user, if login or not
   const [currentUser, setCurrentUser] = useState();
   //if the validation is correct, switch to true (show success component)
   const [isSubmitted, setIsSubmitted] = useState(false);
-  //turn on/off LoadingApiResponse component if the validation is successed
+  //Turn on/off LoadingApiResponse component if the validation is successed
   const [loading, setLoading] = useState(false);
-  //set the tab component visibility as a DOM element
+  //Set the tab component visibility as a DOM element
   const [tabVisibility, setTabVisibility] = useState(true);
-  /*toggle beewten tabs -> login/register, register/login. 
+  /*Toggle beewten tabs -> login/register, register/login. 
      if state is 1 then register tab is highlighted, 2 -login*/
   const [tabToggle, setTabToggle] = useState(1);
   //Open/close the Cart component after clicking on Cart icon in right corner
   const [openCart, setOpenCart] = useState(false);
-  //array for gathering picked shoes
+  //Array for gathering picked shoes
   const [cart, setCart] = useState([]);
-  //btn refs - used to change the DOM status PUT IN CART/ IN CART
+  //Btn refs - used to change the DOM status PUT IN CART/ IN CART
   const [btnRefs, setBtnRefs] = useState([]);
-  //error for gathering info about fetch issues
+  //Error for gathering info about fetch issues
   const [error, setError] = useState({
     fetch: "",
     logout: "",
   });
-  //render children if response has came back (status of currentUser)
+  //Render the application if response has came back (status of the currentUser)
   const [pending, setPending] = useState(true)
  
   useEffect(() => {
+    //Check if the user is logged or not
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
+      //Render the application if response has came back (status of the currentUser)
       setPending(false)
     });
     return unsubscribe;
@@ -66,15 +70,15 @@ const AppProvider = ({ children }) => {
   },[])
 
 
-  //create new user with email using Firebase
+  //Create a new user with email using Firebase
   const signup = async (email, password) => {
     return auth.createUserWithEmailAndPassword(email, password);
   };
-  //login to user account
+  //Login to a user account
   const login = async (email, password) => {
     return auth.signInWithEmailAndPassword(email, password);
   };
-  //logut using auth from firebase
+  //Logut 
   const logout = async () => {
     return auth.signOut();
   };
@@ -82,12 +86,12 @@ const AppProvider = ({ children }) => {
   const newCart = (array) => {
     setCart(array);
   };
-  //add new reffrence of the DOM button - this helps to change the css of the button
+  //Add new reffrence of the DOM button - this helps to change the css of the button
   const addRef = (ref) => {
     setBtnRefs([...btnRefs, ref]);
   };
 
-  //fetch data function
+  //Fetch data 
   const fetchProducts = async () => {
     try {
       const response = await fetch(
@@ -151,7 +155,7 @@ const AppProvider = ({ children }) => {
         newCart,
         setError,
       }}
-    >
+    > 
       { !pending ? children : null }
     </AppContext.Provider>
   );

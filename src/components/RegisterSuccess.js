@@ -1,19 +1,19 @@
 import React from 'react'
-//import Link to move to the direct route
+//Import Link to move to the direct route
 import {Link} from 'react-router-dom'
-//import Context
-import {useGlobalContext} from '../context/Context'
-//import icons
+//Import icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck} from '@fortawesome/free-solid-svg-icons'
+//Import global context
+import {useGlobalContext} from '../context/Context'
 
+//Register success component - loads after successful registeration
 const RegisterSuccess = () => {
-    //import from Context
     const {setTabVisibility, setIsSubmitted} = useGlobalContext();
-    const changeTabPosition = () => {
-        //turns on the visibility of tab
+    
+    const hideTabs = () => {
         setTabVisibility(true);
-        //turn off the RegisterSuccess component, so it's not visiable on /register page
+        //Turn off the RegisterSuccess component
         setIsSubmitted(false)
     }
 
@@ -28,7 +28,7 @@ const RegisterSuccess = () => {
                     className="iconSuccess-RegisterSuccess"
                 />
             </div>
-            <Link to="/login" className="btnContainer-RegisterSuccess" onClick={changeTabPosition}>
+            <Link to="/login" className="btnContainer-RegisterSuccess" onClick={hideTabs}>
                    <button>GO TO LOGIN</button>
             </Link> 
         </div>
