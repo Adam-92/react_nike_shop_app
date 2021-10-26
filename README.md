@@ -10,8 +10,7 @@ The project includes:
 - protected routes 
 - is mobile friendly
 
-If you want to see live-view of the application without npm-install please see it on netlify:
-
+If you want to see live-view of the application please see it on netlify:
 
 https://react-nike-shop.netlify.app/
 
