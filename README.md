@@ -3,7 +3,7 @@ The project is not fully ready. I'm currently finishing it, by cleaning the noti
 
 The project includes:
 - JS validation (live).
-- backend validation (firebase) with the list of registered users(available from my firebase account)
+- backend validation (firebase) 
 - react-router-dom(to switch between pages)
 - CSS transition(to make animation between pages)
 - handle fetch responses and errors
@@ -11,6 +11,8 @@ The project includes:
 - is mobile friendly
 
 If you want to see live-view of the application without npm-install please see it on netlify:
+
+
 https://react-nike-shop.netlify.app/
 
 One more thing: I'm glad if you will check the code and for example indicate some mistakes that I made in code. I think that's the best way to improve your skills if someone more experienced shows you a better way..
