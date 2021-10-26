@@ -26,7 +26,6 @@ const RegisterComponent = () => {
     setError,
     handleSubmit,
     onChangeValue,
-    cleanForm
   } = UseForm(validate);
 
   const { 

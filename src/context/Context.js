@@ -1,31 +1,10 @@
 import React, { useEffect, useState, useContext } from "react";
 //Import firebase authentication
-import { auth } from "../config_firebase/firebase";
-
+import { auth } from "../config/firebase";
+//Import contenfull authentication
+import { contenfullConfig, query} from '../config/contenfull'
 //Create context
 const AppContext = React.createContext();
-
-//Contenfull config
-const contenfullConfig = {
-  space: "ecg5hum2lttf",
-  token: "plYkQzohukQgIMiWaYRkjysVjmIuDioUedjUiiqqQCI",
-};
-
-//Contenfull query
-const query = `
-     {
-        nikeShopCollection{
-            items{
-                
-                id,
-                   model,
-                   img,
-                   price,
-                   size,
-                   amount
-                }
-            }
-    }`;
 
 const AppProvider = ({ children }) => {
   //Database with shoes
