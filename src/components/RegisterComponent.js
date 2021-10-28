@@ -16,6 +16,7 @@ import { useGlobalContext } from "../context/Context";
 
 //Register form component
 const RegisterComponent = () => {
+
   const focusInput = useRef("");
 
   const {
@@ -160,5 +161,4 @@ const RegisterComponent = () => {
     </div>
   );
 };
-
-export default RegisterComponent;
+export default RegisterComponent 

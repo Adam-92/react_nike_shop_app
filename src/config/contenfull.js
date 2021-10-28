@@ -1,7 +1,7 @@
 //Contenfull config
 const contenfullConfig = {
-    space: process.env.REACT_APP_CONTENFULL_SPACE,
-    token: process.env.REACT_APP_CONTENFULL_TOKEN,
+    space: "ecg5hum2lttf",
+    token: "plYkQzohukQgIMiWaYRkjysVjmIuDioUedjUiiqqQCI",
   }
   
   //Contenfull query

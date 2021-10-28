@@ -1,3 +1,4 @@
+import React from 'react'
 import "../index.css";
 //Transition between components
 import { CSSTransition, TransitionGroup } from "react-transition-group";
@@ -13,7 +14,7 @@ import PrivateRoute from "./PrivateRoute";
 
 function App() {
   //Location need to create individual key
-  const location = useLocation();
+  const location = useLocation()
 
   return (
     <TransitionGroup>
