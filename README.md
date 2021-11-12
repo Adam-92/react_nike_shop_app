@@ -22,6 +22,5 @@ One more thing: I'm glad if you will check the code and for example indicate som
 e-mail: adam.kalcas2@gmail.com
 
 
-
-# react_nike_shop_app
+# Project of React Nike Shop
 
