@@ -1,3 +1,6 @@
+# Project of React Nike Shop
+
+
 My project made in React. The idea was to make a NIKE shop. Just for shop purposes, I have placed a few example shoes at the Contenfull server and fetch from app context.
 The project is not fully ready. I'm currently finishing it, by cleaning the notifications from the console. 
 
@@ -19,9 +22,6 @@ One more thing: I'm glad if you will check the code and for example indicate som
 e-mail: adam.kalcas2@gmail.com
 
 
-
-
-# react_nike_shop_app
 
 # react_nike_shop_app
 
