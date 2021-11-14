@@ -7,6 +7,7 @@ The project focuses not only on validation, but also on protecting the user thro
 It all uses animations between new addresses (CSS Transition). The store is mobile friendly!
 
 If you want to see live-view of the application, please see it on Netlify:
+
 https://react-nike-shop.netlify.app/
 
 Short description of the project below:
