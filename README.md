@@ -19,4 +19,4 @@ Short description of the project below:
 - protected routes 
 - is mobile friendly
 
-e-mail: adam.kalcas2@gmail.com
+
