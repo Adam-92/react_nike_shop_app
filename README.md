@@ -19,8 +19,10 @@ Link to Live:
 # https://react-nike-shop.netlify.app/
 
 Test account:
+
 Email: test@gmail.com
 Password: test12345
+
 
 Short description of the project below:
 - JS validation (live).
