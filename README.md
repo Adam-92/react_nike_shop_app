@@ -1,4 +1,4 @@
-# Project of React Nike Shop
+# Project of the React Nike Shop
 
 Project made in React. It has a validation system on the JS side as well as on the back-end on the FIREBASE platform. 
 Registered users can go to the login section and see the products (downloaded from the Contenful platform). 
