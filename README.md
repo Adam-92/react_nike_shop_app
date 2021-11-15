@@ -23,6 +23,8 @@ If you want to see live-view of the application, please see it on Netlify:
 https://react-nike-shop.netlify.app/
 
 
+
+
 Short description of the project below:
 - JS validation (live).
 - backend validation (firebase) 
