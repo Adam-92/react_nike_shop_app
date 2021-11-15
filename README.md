@@ -15,7 +15,7 @@ Logging out also takes place with the use of FIREBASE.
 The project focuses not only on validation, but also on protecting the user through secured routes (private routes function, react-router-dom).
 It all uses animations between new addresses (CSS Transition). The store is mobile friendly!
 
-# If you want to see live-view of the application, please see it on Netlify:
+Link to Live:
 # https://react-nike-shop.netlify.app/
 
 
