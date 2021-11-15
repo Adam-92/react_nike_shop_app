@@ -1,7 +1,7 @@
 # Project of the React Nike Shop
 
 
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/45037539/141752876-16359962-6497-4b96-a46c-332fcfa6df03.gif)
+
 
 
 Project made in React. It has a validation system on the JS side as well as on the back-end on the FIREBASE platform. 
