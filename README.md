@@ -18,9 +18,10 @@ It all uses animations between new addresses (CSS Transition). The store is mobi
 Link to Live:
 # https://react-nike-shop.netlify.app/
 
-Test account:
+#Test account:
 
 Email: test@gmail.com
+
 Password: test12345
 
 
