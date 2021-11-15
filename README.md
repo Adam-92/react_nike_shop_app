@@ -2,8 +2,6 @@
 
 
 
-
-
 Project made in React. It has a validation system on the JS side as well as on the back-end on the FIREBASE platform. 
 Registered users can go to the login section and see the products (downloaded from the Contenful platform). 
 Logging out also takes place with the use of FIREBASE. 
@@ -25,3 +23,5 @@ Short description of the project below:
 - is mobile friendly
 
 
+
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/45037539/141753252-0edbb048-7526-4c2a-84a8-aa65ccd64e3a.gif)
