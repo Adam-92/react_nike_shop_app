@@ -1,8 +1,5 @@
 # Project of the React Nike Shop
 
-
-![1](https://user-images.githubusercontent.com/45037539/141753509-8a78baf7-0f67-44d0-8233-0a4f72f3746d.JPG)
-
 ![2](https://user-images.githubusercontent.com/45037539/141753518-34291ac3-1dd5-42e1-b807-0dd7b43e1e24.JPG)
 
 ![5](https://user-images.githubusercontent.com/45037539/141753524-117def5f-e397-4e93-a16f-a7caf1a0ae15.JPG)
