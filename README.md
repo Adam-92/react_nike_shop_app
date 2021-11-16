@@ -8,29 +8,28 @@
 
 ![9](https://user-images.githubusercontent.com/45037539/141753553-3409ac9a-683f-4622-bc1b-289e93785a66.JPG)
 
+# Live:
 
-Project made in React. It has a validation system on the JS side as well as on the back-end on the FIREBASE platform. 
-Registered users can go to the login section and see the products (downloaded from the Contenful platform). 
-Logging out also takes place with the use of FIREBASE. 
+ https://react-nike-shop.netlify.app/
 
-The project focuses not only on validation, but also on protecting the user through secured routes (private routes function, react-router-dom).
-It all uses animations between new addresses (CSS Transition). The store is mobile friendly!
+# Test account (or create your own) 
+  
+ Email: test@gmail.com
+ 
+ Password: test12345
+ 
+#
+ 
+ Add your favourite shoes to the cart.
+ 
+ The project includes:
 
-Link to Live:
-# https://react-nike-shop.netlify.app/
-
-# Test account ( or create your own) 
-# Email: test@gmail.com
-# Password: test12345
-
-
-Short description of the project below:
-- JS validation (live).
-- backend validation (firebase) 
-- react-router-dom(to switch between pages)
-- CSS transition(to make animation between pages)
-- handle fetch responses and errors
-- protected routes 
-- is mobile friendly
+- JS validation after pressing SUBMIT
+- Validation and registration of new users using the FIREBASE platform
+- Animations, transitions between routes using CSS-Transition-Group, CSS-Transition
+- Handling responses and errors using fetch.
+- Redirecting pages using React-Router-Dom
+- Secured routes. Users cannot go directly to the store without logging in.
+- Is mobile friendly
 
 
